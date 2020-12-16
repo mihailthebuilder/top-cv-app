@@ -1,33 +1,38 @@
 @import "./common/common.scss";
 
-$padding-form-container: 4vw 7vw;
-$border-radius: 2vw;
+$padding-form-container: 2vw 7vw;
+$border-radius: 1vw;
 
 .form-container {
-  margin: 10vw;
+  margin: 8vw;
   color: white;
+  width: 70vw;
 }
 
 .form-heading-container {
   background-color: $dark-lava;
   padding: $padding-form-container;
   border-radius: $border-radius $border-radius 0 0;
-  h1 {
-    margin: 0;
-    text-align: center;
-  }
+  padding: 2vw 0;
 }
 
 .form-body-container {
   padding: $padding-form-container;
   background-color: $bdazzled-blue;
   border-radius: 0 0 $border-radius $border-radius;
-
-  h2 {
-    margin: 0 0 1vw;
-  }
+  padding: 4vw 8vw;
 
   * {
     font-weight: 600;
+  }
+}
+
+@media (max-width: $tablet-screen) {
+  .form-container {
+    width: 80vw;
+  }
+
+  .form-heading-container {
+    padding: 3vw 0;
   }
 }
