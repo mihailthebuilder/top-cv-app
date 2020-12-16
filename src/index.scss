@@ -1,4 +1,4 @@
-@import "./common//common.scss";
+@import "./common/common.scss";
 
 * {
   box-sizing: border-box;
@@ -25,4 +25,10 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+@media (max-width: $tablet-screen) {
+  body {
+    font-size: 3vw;
+  }
 }

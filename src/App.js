@@ -12,7 +12,7 @@ class App extends Component {
     return (
       <div className="form-container">
         <div className="form-heading-container">
-          <h1>Online Application Form</h1>
+          <h1>Job Application Form</h1>
         </div>
         <div className="form-body-container">
           <GeneralInfo />
