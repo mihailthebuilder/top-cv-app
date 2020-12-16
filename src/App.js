@@ -1,23 +1,25 @@
+import React, { Component } from "react";
 import "./App.scss";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import GeneralInfo from "./components/GeneralInfo/GeneralInfo.js";
+
+class App extends Component {
+  constructor(props) {
+    super(props);
+  }
+
+  render() {
+    return (
+      <div className="form-container">
+        <div className="form-heading-container">
+          <h1>Online Application Form</h1>
+        </div>
+        <div className="form-body-container">
+          <GeneralInfo />
+        </div>
+      </div>
+    );
+  }
 }
 
 export default App;

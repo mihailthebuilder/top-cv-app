@@ -1,0 +1,28 @@
+@import "./common/common.scss";
+
+$padding-form-container: 4rem 5rem;
+$border-radius: 1rem;
+
+.form-container {
+  margin: 8rem;
+  color: white;
+}
+
+.form-heading-container {
+  background-color: $dark-lava;
+  padding: $padding-form-container;
+  border-radius: $border-radius $border-radius 0 0;
+  h1 {
+    margin: 0;
+  }
+}
+
+.form-body-container {
+  padding: $padding-form-container;
+  background-color: $bdazzled-blue;
+  border-radius: 0 0 $border-radius $border-radius;
+
+  h2 {
+    margin: 0 0 1rem;
+  }
+}
