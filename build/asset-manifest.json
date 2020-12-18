@@ -1,20 +1,21 @@
 {
   "files": {
-    "main.css": "/top-cv-app/static/css/main.7cba4e1e.chunk.css",
-    "main.js": "/top-cv-app/static/js/main.91ab1be3.chunk.js",
-    "main.js.map": "/top-cv-app/static/js/main.91ab1be3.chunk.js.map",
+    "main.css": "/top-cv-app/static/css/main.6af719ac.chunk.css",
+    "main.js": "/top-cv-app/static/js/main.3b0b9add.chunk.js",
+    "main.js.map": "/top-cv-app/static/js/main.3b0b9add.chunk.js.map",
     "runtime-main.js": "/top-cv-app/static/js/runtime-main.8e2c1084.js",
     "runtime-main.js.map": "/top-cv-app/static/js/runtime-main.8e2c1084.js.map",
     "static/js/2.11837fe0.chunk.js": "/top-cv-app/static/js/2.11837fe0.chunk.js",
     "static/js/2.11837fe0.chunk.js.map": "/top-cv-app/static/js/2.11837fe0.chunk.js.map",
     "index.html": "/top-cv-app/index.html",
-    "static/css/main.7cba4e1e.chunk.css.map": "/top-cv-app/static/css/main.7cba4e1e.chunk.css.map",
-    "static/js/2.11837fe0.chunk.js.LICENSE.txt": "/top-cv-app/static/js/2.11837fe0.chunk.js.LICENSE.txt"
+    "static/css/main.6af719ac.chunk.css.map": "/top-cv-app/static/css/main.6af719ac.chunk.css.map",
+    "static/js/2.11837fe0.chunk.js.LICENSE.txt": "/top-cv-app/static/js/2.11837fe0.chunk.js.LICENSE.txt",
+    "static/media/save.fe093801.svg": "/top-cv-app/static/media/save.fe093801.svg"
   },
   "entrypoints": [
     "static/js/runtime-main.8e2c1084.js",
     "static/js/2.11837fe0.chunk.js",
-    "static/css/main.7cba4e1e.chunk.css",
-    "static/js/main.91ab1be3.chunk.js"
+    "static/css/main.6af719ac.chunk.css",
+    "static/js/main.3b0b9add.chunk.js"
   ]
 }
