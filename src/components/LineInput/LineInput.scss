@@ -1,3 +1,22 @@
-.line-input {
-  margin-top: 5vw;
+@import "../../common/common.scss";
+
+.form-question {
+  margin-top: 4vw;
+
+  display: grid;
+  grid-template-columns: 2fr 6fr 1fr;
+
+  input {
+    border: 0.2rem solid $saffron;
+    border-radius: 0.5rem;
+    color: $saffron;
+  }
+}
+
+.single-row {
+  label {
+    display: flex !important;
+    flex-direction: column;
+    justify-content: center;
+  }
 }
