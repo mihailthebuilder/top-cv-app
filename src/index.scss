@@ -42,6 +42,13 @@ button {
   font-size: 2vw;
 }
 
+.hover-highlight:focus,
+.hover-highlight:hover {
+  outline-style: none;
+  box-shadow: 0 0 1rem 0.05rem white;
+  transition: $transition-time;
+}
+
 @media (max-width: $tablet-screen) {
   h1 {
     font-size: 6vw;

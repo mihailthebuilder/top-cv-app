@@ -4,19 +4,26 @@
   margin-top: 4vw;
 
   display: grid;
-  grid-template-columns: 2fr 6fr 1fr;
+  grid-template-columns: repeat(9, 1fr);
 
-  input {
-    border: 0.2rem solid $saffron;
-    border-radius: 0.5rem;
-    color: $saffron;
-  }
-}
-
-.single-row {
   label {
     display: flex !important;
     flex-direction: column;
     justify-content: center;
+    grid-column-end: span 2;
+  }
+
+  input {
+    border: 0.2rem solid $saffron;
+    border-radius: $border-radius;
+    color: $saffron;
+    grid-column-end: span 6;
+    padding: 0.5rem 1rem;
+  }
+
+  button {
+    grid-column-end: span 1;
+    width: 3rem;
+    justify-self: end;
   }
 }
