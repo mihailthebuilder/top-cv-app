@@ -20,10 +20,27 @@
     grid-column-end: span 6;
     padding: 0.5rem 1rem;
   }
+}
 
-  button {
-    grid-column-end: span 1;
-    width: 3rem;
-    justify-self: end;
+@media (max-width: $tablet-screen) {
+  .form-question {
+    label {
+      grid-column-end: span 9;
+      margin-bottom: 2vw;
+    }
+
+    input {
+      grid-column-end: span 7;
+      padding: 1vw 2vw;
+      border-radius: $border-radius-responsive;
+    }
+  }
+}
+
+@media (max-width: $mobile-screen) {
+  .form-question {
+    input {
+      border: 0.15rem solid $saffron;
+    }
   }
 }

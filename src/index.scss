@@ -64,3 +64,12 @@ button {
     font-size: 4vw;
   }
 }
+
+@media (max-width: $mobile-screen) {
+  .hover-highlight:focus,
+  .hover-highlight:hover {
+    outline-style: none;
+    box-shadow: 0 0 0.2rem 0.03rem white;
+    transition: $transition-time;
+  }
+}

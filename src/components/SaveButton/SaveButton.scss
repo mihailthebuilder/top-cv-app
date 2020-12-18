@@ -1,6 +1,10 @@
 @import "../../common/common.scss";
 
 .save-button {
+  grid-column-end: span 1;
+  width: 3rem;
+  justify-self: end;
+
   background-color: transparent;
   outline: none;
   border: none;
@@ -10,6 +14,7 @@
   align-items: center;
   justify-content: center;
   border-radius: $border-radius;
+  padding: 0;
 
   svg {
     fill: white;
@@ -18,5 +23,12 @@
   svg:hover {
     fill: $saffron;
     transition: $transition-time;
+  }
+}
+
+@media (max-width: $tablet-screen) {
+  .save-button {
+    grid-column-end: span 2;
+    width: 7vw;
   }
 }
