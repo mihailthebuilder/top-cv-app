@@ -3,10 +3,34 @@ import "./App.scss";
 
 import GeneralInfo from "./components/GeneralInfo/GeneralInfo.js";
 
+import { InitalizeQuestionList, AnswerObj } from "./common/resources.js";
+
 class App extends Component {
   constructor(props) {
     super(props);
+
+    this.state = {
+      savedAnswers: InitalizeQuestionList(),
+      activeQuestion: {},
+    };
+
+    //this.inputChange = this.inputChange.bind(this);
   }
+
+  /*
+  inputChange(event) {
+    this.setState({
+      inputQuestion: event.target.getAttribute("question"),
+      inputAnswer: event.target.value,
+    });
+  }
+
+  inputSubmit(event) {
+    event.preventDefault();
+
+    //this.setState((state)=>)
+  }
+  */
 
   render() {
     return (
@@ -15,7 +39,13 @@ class App extends Component {
           <h1>Job Application Form</h1>
         </div>
         <div className="form-body-container">
-          <GeneralInfo />
+          <GeneralInfo
+
+          /*
+            inputChange={this.inputChange}
+            inputAnswer={this.inputAnswer}
+            */
+          />
         </div>
       </div>
     );

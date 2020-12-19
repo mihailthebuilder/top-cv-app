@@ -1,4 +1,8 @@
-/* SCSS HSL */
+//responsive
+$tablet-screen: 768px;
+$mobile-screen: 576px;
+
+// colour combo for the app
 $saffron: hsla(47, 81%, 56%, 1);
 $bdazzled-blue: hsla(217, 48%, 39%, 1);
 $dark-lava: hsla(37, 16%, 28%, 1);
@@ -9,6 +13,3 @@ $border-radius: 0.5rem;
 $border-radius-responsive: 1vw;
 
 $transition-time: 0.2s;
-
-$tablet-screen: 768px;
-$mobile-screen: 576px;

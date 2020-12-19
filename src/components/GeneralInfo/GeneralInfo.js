@@ -6,7 +6,15 @@ const GeneralInfo = (props) => {
     <div>
       <h2>General Info</h2>
       <LineBreak />
-      <LineInput label="Name" type="text" />
+      <LineInput
+        label="Name"
+        type="text"
+        /*
+        inputChange={props.inputChange}
+        inputQuestion={"name"}
+        inputAnswer={props.inputAnswer}
+        */
+      />
     </div>
   );
 };
