@@ -1,7 +1,6 @@
 //the container for the question
 function QuestionObj(questionLabel) {
-  this.question = questionLabel;
-  this.answers = [];
+  this[questionLabel] = [];
 }
 
 //the container for an answer. will be used when html input element is in focus
