@@ -10,14 +10,14 @@
     display: flex !important;
     flex-direction: column;
     justify-content: center;
-    grid-column-end: span 2;
+    grid-column-end: span 3;
   }
 
   input {
     border: 0.2rem solid $saffron;
     border-radius: $border-radius;
     color: $saffron;
-    grid-column-end: span 6;
+    grid-column-end: span 5;
     padding: 0.5rem 1rem;
     width: 100%;
   }
