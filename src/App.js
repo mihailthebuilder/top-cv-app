@@ -1,50 +1,40 @@
 import React, { Component } from "react";
 import "./App.scss";
 
-import GeneralInfo from "./components/GeneralInfo/GeneralInfo.js";
+import LineBreak from "./components/LineBreak/LineBreak.js";
+import LineInput from "./components/LineInput/LineInput.js";
 
-import { InitalizeQuestionList, AnswerObj } from "./common/data.js";
+function LineQuestionObj(value = "", saved = false) {
+  this.value = value;
+  this.saved = saved;
+}
 
 class App extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      questions: InitalizeQuestionList(),
+      name: new LineQuestionObj(),
+      email: new LineQuestionObj(),
+      phone: new LineQuestionObj(),
+      jobs: [],
+      education: [],
+      savedAnswers: [],
     };
 
-    this.inputChange = this.inputChange.bind(this);
+    this.lineInputChange = this.lineInputChange.bind(this);
   }
 
-  inputChange(event) {
-    //CHECK JOPLIN==============================================================
-    this.setState((state) => {
-      let inputElem = event.target;
+  lineInputChange(event) {
+    let stateKey = event.target.getAttribute("state");
 
-      let inputKey = inputElem.getAttribute("key");
-      let inputValue = inputElem.value;
-      let questionKey = inputElem.closest("form").getAttribute("question");
+    let updatedState = {};
+    updatedState[stateKey] = new LineQuestionObj(event.target.value);
 
-      let newQuestionsState = state.questions.slice();
+    this.setState(updatedState);
 
-      if (state.questions[questionKey].length === 0) {
-      }
-    });
-
-    /*
-    this.setState({
-      inputQuestion: event.target.getAttribute("question"),
-      inputAnswer: event.target.value,
-    });*/
+    console.log(this.state);
   }
-
-  /*
-  inputSubmit(event) {
-    event.preventDefault();
-
-    //this.setState((state)=>)
-  }
-  */
 
   render() {
     return (
@@ -53,12 +43,14 @@ class App extends Component {
           <h1>Job Application Form</h1>
         </div>
         <div className="form-body-container">
-          <GeneralInfo
-
-          /*
-            inputChange={this.inputChange}
-            inputAnswer={this.inputAnswer}
-            */
+          <h2>General Info</h2>
+          <LineBreak />
+          <LineInput
+            label="Name"
+            state="name"
+            data={this.state.name}
+            type="text"
+            lineInputChange={this.lineInputChange}
           />
         </div>
       </div>
