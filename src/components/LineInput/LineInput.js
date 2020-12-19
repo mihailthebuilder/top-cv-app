@@ -1,15 +1,17 @@
 import "./LineInput.scss";
 import SaveButton from "../SaveButton/SaveButton.js";
 
+//NEEDS CHANGED
 const LineInput = (props) => {
   return (
-    <form className="form-question" question={props.question}>
+    <form className="form-question">
       <label>{props.label}</label>
       <input
         type={props.inputType}
         className="hover-highlight"
         onChange={props.inputChange}
-        value={data.length === 0 ? "" : data}
+        value={props.inputValue}
+        question={props.inputQuestion}
         required
       />
       <SaveButton />
