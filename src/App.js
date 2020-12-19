@@ -1,16 +1,20 @@
 import React, { Component } from "react";
 import "./App.scss";
 
-import GeneralInfo from "./components/GeneralInfo/GeneralInfo.js";
-
-import { InitalizeQuestionList, AnswerObj } from "./common/data.js";
+import LineBreak from "./components/LineBreak/LineBreak.js";
+import LineInput from "./components/LineInput/LineInput.js";
 
 class App extends Component {
   constructor(props) {
     super(props);
 
+    //initialise all answers as an array so that you can use 1 input handler function across all
     this.state = {
-      questions: InitalizeQuestionList(),
+      name: [],
+      email: [],
+      phone: [],
+      job: [],
+      education: [],
     };
 
     this.inputChange = this.inputChange.bind(this);
@@ -53,13 +57,17 @@ class App extends Component {
           <h1>Job Application Form</h1>
         </div>
         <div className="form-body-container">
-          <GeneralInfo
-
-          /*
-            inputChange={this.inputChange}
-            inputAnswer={this.inputAnswer}
-            */
-          />
+          <div>
+            <h2>General Info</h2>
+            <LineBreak />
+            <LineInput
+              label="Name"
+              type="text"
+              question="name"
+              data={this.state.name}
+              inputChange={this.inputChange}
+            />
+          </div>
         </div>
       </div>
     );
