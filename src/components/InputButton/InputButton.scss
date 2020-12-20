@@ -3,17 +3,13 @@
 .save-button {
   grid-column-end: span 1;
   width: 3rem;
+  height: 3rem;
   justify-self: end;
 
   background-color: transparent;
   outline: none;
   border: none;
   cursor: pointer;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  border-radius: $border-radius;
   padding: 0;
 
   svg {
@@ -29,6 +25,7 @@
 @media (max-width: $tablet-screen) {
   .save-button {
     grid-column-end: span 2;
-    width: 7vw;
+    width: 6vw;
+    height: 6vw;
   }
 }

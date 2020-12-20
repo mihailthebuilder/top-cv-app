@@ -1,5 +1,5 @@
 import "./LineInput.scss";
-import SaveButton from "../SaveButton/SaveButton.js";
+import InputButton from "../InputButton/InputButton.js";
 
 const LineInput = (props) => {
   console.log(props.state, props.data);
@@ -10,10 +10,11 @@ const LineInput = (props) => {
     <div className="form-question">
       {labelJsx}
       <span>{props.data.value}</span>
+      <InputButton saved={props.data.saved} />
     </div>
   ) : (
     <form className="form-question" onSubmit={props.lineInputSave}>
-      <label>{props.label}</label>
+      {labelJsx}
       <input
         type={props.type}
         className="hover-highlight"
@@ -22,7 +23,7 @@ const LineInput = (props) => {
         onChange={props.lineInputChange}
         required
       />
-      <SaveButton />
+      <InputButton saved={props.data.saved} />
     </form>
   );
 };

@@ -2,9 +2,10 @@
 
 .form-question {
   margin-top: 4vw;
-
+  grid-template-rows: 4rem;
   display: grid;
   grid-template-columns: repeat(9, 1fr);
+  align-items: center;
 
   label {
     display: flex !important;
@@ -16,27 +17,36 @@
   input {
     border: 0.2rem solid $saffron;
     border-radius: $border-radius;
-    color: $saffron;
-    grid-column-end: span 5;
     padding: 0.5rem 1rem;
     width: 100%;
   }
 
+  input,
   span {
     color: $saffron;
-    grid-column-end: span 4;
+    grid-column-end: span 5;
+  }
+
+  span {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
 }
 
 @media (max-width: $tablet-screen) {
   .form-question {
+    grid-template-rows: 8vw 13vw;
     label {
       grid-column-end: span 9;
-      margin-bottom: 2vw;
+    }
+
+    input,
+    span {
+      grid-column-end: span 7;
     }
 
     input {
-      grid-column-end: span 7;
       padding: 1vw 2vw;
       border-radius: $border-radius-responsive;
     }
