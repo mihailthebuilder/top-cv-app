@@ -1,8 +1,10 @@
 import React, { Component } from "react";
 import "./App.scss";
 
-import LineBreak from "./components/LineBreak/LineBreak.js";
+import FormHeading from "./components/FormHeading/FormHeading.js";
 import LineInput from "./components/LineInput/LineInput.js";
+
+import Education from "./components/Education/Education.js";
 
 function LineQuestionObj(value = "", saved = false) {
   this.value = value;
@@ -19,7 +21,6 @@ class App extends Component {
       phone: new LineQuestionObj(),
       jobs: [],
       education: [],
-      savedAnswers: [],
     };
 
     this.lineInputChange = this.lineInputChange.bind(this);
@@ -70,8 +71,7 @@ class App extends Component {
         </div>
         <div className="form-body-container">
           <div>
-            <h2>General Info</h2>
-            <LineBreak />
+            <FormHeading title="General Info" />
             <LineInput
               label="Name"
               state="name"
@@ -100,10 +100,7 @@ class App extends Component {
               lineInputEdit={this.lineInputEdit}
             />
           </div>
-          <div>
-            <h2>Education</h2>
-            <LineBreak />
-          </div>
+          <Education state={this.state.education} />
         </div>
       </div>
     );

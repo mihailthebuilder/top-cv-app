@@ -1,0 +1,17 @@
+@import "../../common/common.scss";
+
+.line-break {
+  height: 0.2vw;
+  background-color: grey;
+}
+
+h2 {
+  margin: 0 0 1vw;
+  font-size: 2.5vw;
+}
+
+@media (max-width: $tablet-screen) {
+  h2 {
+    font-size: 5vw;
+  }
+}
