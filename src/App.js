@@ -24,6 +24,7 @@ class App extends Component {
 
     this.lineInputChange = this.lineInputChange.bind(this);
     this.lineInputSave = this.lineInputSave.bind(this);
+    this.lineInputEdit = this.lineInputEdit.bind(this);
   }
 
   lineInputChange(event) {
@@ -41,12 +42,22 @@ class App extends Component {
     this.setState((state) => {
       let stateKey = event.target.querySelector("input").getAttribute("state");
       let updatedState = {};
-
-      console.log("statekey", stateKey, "state", state[stateKey]);
-
       updatedState[stateKey] = new LineQuestionObj(state[stateKey].value, true);
 
-      console.log("does this even work");
+      return updatedState;
+    });
+  }
+
+  lineInputEdit(event) {
+    this.setState((state) => {
+      let stateKey = event.target.closest("button").getAttribute("state");
+
+      let updatedState = {};
+      updatedState[stateKey] = new LineQuestionObj(
+        state[stateKey].value,
+        false
+      );
+
       return updatedState;
     });
   }
@@ -67,6 +78,7 @@ class App extends Component {
             type="text"
             lineInputChange={this.lineInputChange}
             lineInputSave={this.lineInputSave}
+            lineInputEdit={this.lineInputEdit}
           />
           <LineInput
             label="Email"
@@ -75,6 +87,7 @@ class App extends Component {
             type="email"
             lineInputChange={this.lineInputChange}
             lineInputSave={this.lineInputSave}
+            lineInputEdit={this.lineInputEdit}
           />
           <LineInput
             label="Phone number"
@@ -83,6 +96,7 @@ class App extends Component {
             type="text"
             lineInputChange={this.lineInputChange}
             lineInputSave={this.lineInputSave}
+            lineInputEdit={this.lineInputEdit}
           />
         </div>
       </div>

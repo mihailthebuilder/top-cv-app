@@ -5,7 +5,11 @@ import "./InputButton.scss";
 
 const InputButton = (props) => {
   return props.saved ? (
-    <button className="save-button">
+    <button
+      className="save-button"
+      onClick={props.lineInputEdit}
+      state={props.state}
+    >
       <EditSvg />
     </button>
   ) : (

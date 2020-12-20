@@ -2,15 +2,17 @@ import "./LineInput.scss";
 import InputButton from "../InputButton/InputButton.js";
 
 const LineInput = (props) => {
-  console.log(props.state, props.data);
-
   let labelJsx = <label>{props.label}</label>;
 
   return props.data.saved ? (
     <div className="form-question">
       {labelJsx}
       <span>{props.data.value}</span>
-      <InputButton saved={props.data.saved} />
+      <InputButton
+        saved={props.data.saved}
+        lineInputEdit={props.lineInputEdit}
+        state={props.state}
+      />
     </div>
   ) : (
     <form className="form-question" onSubmit={props.lineInputSave}>
