@@ -21,6 +21,11 @@
     padding: 0.5rem 1rem;
     width: 100%;
   }
+
+  span {
+    color: $saffron;
+    grid-column-end: span 4;
+  }
 }
 
 @media (max-width: $tablet-screen) {
