@@ -22,6 +22,9 @@ $border-radius: 1vw;
   border-radius: 0 0 $border-radius $border-radius;
   padding: 4vw 8vw;
 
+  display: grid;
+  row-gap: 5vw;
+
   * {
     font-weight: 600;
   }

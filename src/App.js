@@ -69,35 +69,41 @@ class App extends Component {
           <h1>Job Application Form</h1>
         </div>
         <div className="form-body-container">
-          <h2>General Info</h2>
-          <LineBreak />
-          <LineInput
-            label="Name"
-            state="name"
-            data={this.state.name}
-            type="text"
-            lineInputChange={this.lineInputChange}
-            lineInputSave={this.lineInputSave}
-            lineInputEdit={this.lineInputEdit}
-          />
-          <LineInput
-            label="Email"
-            state="email"
-            data={this.state.email}
-            type="email"
-            lineInputChange={this.lineInputChange}
-            lineInputSave={this.lineInputSave}
-            lineInputEdit={this.lineInputEdit}
-          />
-          <LineInput
-            label="Phone number"
-            state="phone"
-            data={this.state.phone}
-            type="text"
-            lineInputChange={this.lineInputChange}
-            lineInputSave={this.lineInputSave}
-            lineInputEdit={this.lineInputEdit}
-          />
+          <div>
+            <h2>General Info</h2>
+            <LineBreak />
+            <LineInput
+              label="Name"
+              state="name"
+              data={this.state.name}
+              type="text"
+              lineInputChange={this.lineInputChange}
+              lineInputSave={this.lineInputSave}
+              lineInputEdit={this.lineInputEdit}
+            />
+            <LineInput
+              label="Email"
+              state="email"
+              data={this.state.email}
+              type="email"
+              lineInputChange={this.lineInputChange}
+              lineInputSave={this.lineInputSave}
+              lineInputEdit={this.lineInputEdit}
+            />
+            <LineInput
+              label="Phone number"
+              state="phone"
+              data={this.state.phone}
+              type="text"
+              lineInputChange={this.lineInputChange}
+              lineInputSave={this.lineInputSave}
+              lineInputEdit={this.lineInputEdit}
+            />
+          </div>
+          <div>
+            <h2>Education</h2>
+            <LineBreak />
+          </div>
         </div>
       </div>
     );
