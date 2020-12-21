@@ -8,8 +8,11 @@ const NewEntryButton = (props) => {
     : ["Add", props.newEntryButtonClick];
 
   return (
-    <div className="button-section" onClick={buttonTrigger}>
-      <button className="new-entry-button border-radius border-width regular-font-size">
+    <div className="button-section">
+      <button
+        onClick={buttonTrigger}
+        className="new-entry-button border-radius border-width regular-font-size"
+      >
         {buttonText}
       </button>
     </div>
