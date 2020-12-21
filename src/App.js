@@ -10,9 +10,10 @@ function AnswerObj(answers = [], saved = false) {
 }
 
 const copyAnswerObj = (obj) => {
-  let newObj = {};
-  newObj.saved = obj.saved;
-  newObj.answers = obj.answers.map((a) => Object.assign({}, a));
+  let newObj = new AnswerObj(
+    obj.answers.map((a) => Object.assign({}, a)),
+    obj.saved
+  );
   return newObj;
 };
 
@@ -77,6 +78,11 @@ class App extends Component {
         <div className="form-body-container">
           <GeneralInfo
             data={this.state.generalInfo}
+            inputChange={this.inputChange}
+            sectionSaveEdit={this.sectionSaveEdit}
+          />
+          <Education
+            data={this.state.education}
             inputChange={this.inputChange}
             sectionSaveEdit={this.sectionSaveEdit}
           />
