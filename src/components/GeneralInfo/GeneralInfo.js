@@ -20,7 +20,7 @@ const GeneralInfo = (props) => {
         type="text"
       />
       <div className="buttons-container">
-        <Button buttonText="Save" />
+        <Button buttonText="Save" buttonTrigger="" />
       </div>
     </div>
   );
