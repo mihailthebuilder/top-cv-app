@@ -1,9 +1,7 @@
 import React, { Component } from "react";
 import "./App.scss";
 
-import FormHeading from "./components/FormHeading/FormHeading.js";
-import LineInput from "./components/LineInput/LineInput.js";
-
+import GeneralInfo from "./components/GeneralInfo/GeneralInfo.js";
 import Education from "./components/Education/Education.js";
 
 function LineQuestionObj(value = "", saved = false) {
@@ -20,7 +18,9 @@ class App extends Component {
       email: new LineQuestionObj(),
       phone: new LineQuestionObj(),
       jobs: [],
+      newJobEntry: false,
       education: [],
+      newEducationEntry: false,
     };
 
     this.lineInputChange = this.lineInputChange.bind(this);
@@ -70,36 +70,14 @@ class App extends Component {
           <h1>Job Application Form</h1>
         </div>
         <div className="form-body-container">
-          <div>
-            <FormHeading title="General Info" />
-            <LineInput
-              label="Name"
-              state="name"
-              data={this.state.name}
-              type="text"
-              lineInputChange={this.lineInputChange}
-              lineInputSave={this.lineInputSave}
-              lineInputEdit={this.lineInputEdit}
-            />
-            <LineInput
-              label="Email"
-              state="email"
-              data={this.state.email}
-              type="email"
-              lineInputChange={this.lineInputChange}
-              lineInputSave={this.lineInputSave}
-              lineInputEdit={this.lineInputEdit}
-            />
-            <LineInput
-              label="Phone number"
-              state="phone"
-              data={this.state.phone}
-              type="text"
-              lineInputChange={this.lineInputChange}
-              lineInputSave={this.lineInputSave}
-              lineInputEdit={this.lineInputEdit}
-            />
-          </div>
+          <GeneralInfo
+            nameData={this.state.name}
+            emailData={this.state.email}
+            phoneData={this.state.phone}
+            lineInputChange={this.lineInputChange}
+            lineInputSave={this.lineInputSave}
+            lineInputEdit={this.lineInputEdit}
+          />
           <Education state={this.state.education} />
         </div>
       </div>

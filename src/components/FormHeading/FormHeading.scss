@@ -3,15 +3,16 @@
 .line-break {
   height: 0.2vw;
   background-color: grey;
+  margin-bottom: 4vw;
 }
 
 h2 {
   margin: 0 0 1vw;
-  font-size: 2.5vw;
+  font-size: $h2-font-size-desktop;
 }
 
 @media (max-width: $tablet-screen) {
   h2 {
-    font-size: 5vw;
+    font-size: $h2-font-size-smaller;
   }
 }

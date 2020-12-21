@@ -1,0 +1,37 @@
+@import "../../common/common.scss";
+
+label,
+input,
+button,
+span {
+  font-size: $regular-font-size-desktop;
+}
+
+.hover-highlight:focus,
+.hover-highlight:hover {
+  outline-style: none;
+  box-shadow: 0 0 1rem 0.05rem white;
+  transition: $transition-time;
+}
+
+@media (max-width: $tablet-screen) {
+  h1 {
+    font-size: $h1-font-size-smaller;
+  }
+
+  label,
+  input,
+  button,
+  span {
+    font-size: $regular-font-size-smaller;
+  }
+}
+
+@media (max-width: $mobile-screen) {
+  .hover-highlight:focus,
+  .hover-highlight:hover {
+    outline-style: none;
+    box-shadow: 0 0 0.2rem 0.03rem white;
+    transition: $transition-time;
+  }
+}
