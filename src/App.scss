@@ -1,12 +1,11 @@
 @import "./common/common.scss";
 
-$padding-form-container: 2vw 7vw;
-
 h1 {
   margin: 0;
   text-align: center;
-  font-size: $h1-font-size-desktop;
 }
+
+$padding-form-container: 2vw 7vw;
 
 .form-container {
   margin: 8vw;

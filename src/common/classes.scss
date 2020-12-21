@@ -1,0 +1,32 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  overflow-x: none;
+}
+
+h1 {
+  font-size: 3vw;
+}
+
+h2 {
+  font-size: 2.5vw;
+}
+
+.regular-font-size {
+  font-size: 2vw;
+}
+
+@media (max-width: $tablet-screen) {
+  h1 {
+    font-size: 6vw;
+  }
+  h2 {
+    font-size: 5vw;
+  }
+  .regular-font-size {
+    font-size: 4vw;
+  }
+}

@@ -1,18 +1,11 @@
 @import "../../common/common.scss";
 
+h2 {
+  margin: 0 0 1vw;
+}
+
 .line-break {
   height: 0.2vw;
   background-color: grey;
   margin-bottom: 4vw;
-}
-
-h2 {
-  margin: 0 0 1vw;
-  font-size: $h2-font-size-desktop;
-}
-
-@media (max-width: $tablet-screen) {
-  h2 {
-    font-size: $h2-font-size-smaller;
-  }
 }

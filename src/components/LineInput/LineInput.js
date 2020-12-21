@@ -2,12 +2,12 @@ import "./LineInput.scss";
 import InputButton from "../InputButton/InputButton.js";
 
 const LineInput = (props) => {
-  let labelJsx = <label>{props.label}</label>;
+  let labelJsx = <label className="regular-font-size">{props.label}</label>;
 
   return props.data.saved ? (
     <div className="form-question">
       {labelJsx}
-      <span>{props.data.value}</span>
+      <span className="regular-font-size">{props.data.value}</span>
       <InputButton
         saved={props.data.saved}
         lineInputEdit={props.lineInputEdit}
@@ -19,7 +19,7 @@ const LineInput = (props) => {
       {labelJsx}
       <input
         type={props.type}
-        className="hover-highlight"
+        className="hover-highlight regular-font-size"
         value={props.data.value}
         state={props.state}
         onChange={props.lineInputChange}
