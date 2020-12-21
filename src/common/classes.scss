@@ -1,3 +1,5 @@
+@import "./common.scss";
+
 * {
   box-sizing: border-box;
 }
@@ -19,6 +21,10 @@ h2 {
   font-size: 2vw;
 }
 
+.border-radius {
+  border-radius: $border-radius;
+}
+
 @media (max-width: $tablet-screen) {
   h1 {
     font-size: 6vw;
@@ -28,5 +34,8 @@ h2 {
   }
   .regular-font-size {
     font-size: 4vw;
+  }
+  .border-radius {
+    border-radius: $border-radius-responsive;
   }
 }

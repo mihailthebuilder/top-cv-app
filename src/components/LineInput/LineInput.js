@@ -19,7 +19,7 @@ const LineInput = (props) => {
       {labelJsx}
       <input
         type={props.type}
-        className="hover-highlight regular-font-size"
+        className="hover-highlight regular-font-size border-radius"
         value={props.data.value}
         state={props.state}
         onChange={props.lineInputChange}

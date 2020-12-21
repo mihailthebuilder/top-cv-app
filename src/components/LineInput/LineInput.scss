@@ -13,7 +13,6 @@
 
   input {
     border: 0.2rem solid $saffron;
-    border-radius: $border-radius;
     padding: 0.5rem 1rem;
     width: 100%;
   }
@@ -39,7 +38,6 @@
 
     input {
       padding: 1vw 2vw;
-      border-radius: $border-radius-responsive;
     }
   }
 }
