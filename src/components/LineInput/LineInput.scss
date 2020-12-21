@@ -12,7 +12,8 @@
   }
 
   input {
-    border: 0.2rem solid $saffron;
+    border-style: solid;
+    border-color: $saffron;
     padding: 0.5rem 1rem;
     width: 100%;
   }
@@ -50,12 +51,6 @@
 }
 
 @media (max-width: $mobile-screen) {
-  .form-question {
-    input {
-      border: 0.15rem solid $saffron;
-    }
-  }
-
   .hover-highlight:focus,
   .hover-highlight:hover {
     outline-style: none;

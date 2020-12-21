@@ -25,6 +25,10 @@ h2 {
   border-radius: $border-radius;
 }
 
+.border-width {
+  border-width: 0.2rem;
+}
+
 @media (max-width: $tablet-screen) {
   h1 {
     font-size: 6vw;
@@ -37,5 +41,8 @@ h2 {
   }
   .border-radius {
     border-radius: $border-radius-responsive;
+  }
+  .border-width {
+    border-width: 0.15rem;
   }
 }
