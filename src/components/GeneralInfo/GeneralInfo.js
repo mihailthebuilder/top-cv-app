@@ -1,8 +1,6 @@
 import FormHeading from "../FormHeading/FormHeading.js";
 import LineInput from "../LineInput/LineInput.js";
 
-import "./GeneralInfo.scss";
-
 const GeneralInfo = (props) => {
   return (
     <div>

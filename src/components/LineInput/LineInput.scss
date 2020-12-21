@@ -24,6 +24,13 @@
   }
 }
 
+.hover-highlight:focus,
+.hover-highlight:hover {
+  outline-style: none;
+  box-shadow: 0 0 1rem 0.05rem white;
+  transition: $transition-time;
+}
+
 @media (max-width: $tablet-screen) {
   .form-question {
     grid-template-rows: 8vw 13vw;
@@ -47,5 +54,12 @@
     input {
       border: 0.15rem solid $saffron;
     }
+  }
+
+  .hover-highlight:focus,
+  .hover-highlight:hover {
+    outline-style: none;
+    box-shadow: 0 0 0.2rem 0.03rem white;
+    transition: $transition-time;
   }
 }
