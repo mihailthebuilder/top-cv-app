@@ -1,8 +1,35 @@
 @import "../../common/common.scss";
 
+.button-section {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+
 .new-entry-button {
-  height: 4rem;
-  width: 12rem;
+  padding: 1rem 0;
+  width: 100%;
 
   background-color: $dark-lava;
+  border-color: $saffron;
+  border-style: solid;
+  cursor: pointer;
+
+  color: $saffron;
+  transition: $transition-time;
+  outline: none;
+}
+
+.new-entry-button:hover {
+  background-color: $saffron;
+  border-color: $dark-lava;
+  color: $dark-lava;
+}
+
+@media (max-width: $tablet-screen) {
+  .button-section {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .new-entry-button {
+    padding: 2vw 0;
+  }
 }

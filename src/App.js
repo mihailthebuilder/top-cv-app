@@ -9,6 +9,11 @@ function LineQuestionObj(value = "", saved = false) {
   this.saved = saved;
 }
 
+function MultiAnswerObj(values = [], newEntry = false) {
+  this.answers = [];
+  this.newEntry = false;
+}
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -17,15 +22,14 @@ class App extends Component {
       name: new LineQuestionObj(),
       email: new LineQuestionObj(),
       phone: new LineQuestionObj(),
-      jobs: [],
-      newJobEntry: false,
-      education: [],
-      newEducationEntry: false,
+      education: new MultiAnswerObj(),
+      jobs: new MultiAnswerObj(),
     };
 
     this.lineInputChange = this.lineInputChange.bind(this);
     this.lineInputSave = this.lineInputSave.bind(this);
     this.lineInputEdit = this.lineInputEdit.bind(this);
+    this.newEntryButtonClick = this.newEntryButtonClick.bind(this);
   }
 
   lineInputChange(event) {
@@ -63,6 +67,22 @@ class App extends Component {
     });
   }
 
+  newEntryButtonClick(event) {
+    console.log("newEntryButtonClick triggered");
+
+    this.setState((state) => {
+      let stateKey = event.target.getAttribute("state");
+
+      let updatedState = {};
+      updatedState[stateKey] = new MultiAnswerObj(
+        state[stateKey].answers,
+        true
+      );
+
+      return updatedState;
+    });
+  }
+
   render() {
     return (
       <div className="form-container">
@@ -78,7 +98,10 @@ class App extends Component {
             lineInputSave={this.lineInputSave}
             lineInputEdit={this.lineInputEdit}
           />
-          <Education state={this.state.education} />
+          <Education
+            educationData={this.state.education}
+            newEntry={this.newEntryButtonClick}
+          />
         </div>
       </div>
     );
