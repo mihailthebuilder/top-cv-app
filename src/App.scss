@@ -34,6 +34,11 @@ $padding-form-container: 2vw 7vw;
   }
 }
 
+.buttons-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+
 @media (max-width: $tablet-screen) {
   .form-container {
     width: 80vw;
@@ -41,5 +46,9 @@ $padding-form-container: 2vw 7vw;
 
   .form-heading-container {
     padding: 3vw 0;
+  }
+
+  .buttons-container {
+    grid-template-columns: repeat(3, 1fr);
   }
 }

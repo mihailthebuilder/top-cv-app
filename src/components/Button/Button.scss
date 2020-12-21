@@ -1,11 +1,6 @@
 @import "../../common/common.scss";
 
-.button-section {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-}
-
-.new-entry-button {
+.btn {
   padding: 1rem 0;
   width: 100%;
 
@@ -17,19 +12,18 @@
   color: $saffron;
   transition: $transition-time;
   outline: none;
+
+  margin-top: $line-spacing;
 }
 
-.new-entry-button:hover {
+.btn:hover {
   background-color: $saffron;
   border-color: $dark-lava;
   color: $dark-lava;
 }
 
 @media (max-width: $tablet-screen) {
-  .button-section {
-    grid-template-columns: repeat(3, 1fr);
-  }
-  .new-entry-button {
+  .btn {
     padding: 2vw 0;
   }
 }

@@ -1,6 +1,5 @@
 import "./Education.scss";
 import FormHeading from "../FormHeading/FormHeading.js";
-import NewEntryButton from "../NewEntryButton/NewEntryButton.js";
 
 const Education = (props) => {
   /*

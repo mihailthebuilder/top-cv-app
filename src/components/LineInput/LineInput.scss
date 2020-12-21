@@ -1,8 +1,8 @@
 @import "../../common/common.scss";
 
 .form-question {
-  margin-top: 4vw;
-  grid-template-rows: 4rem;
+  margin-top: $line-spacing;
+  grid-template-rows: 3rem;
   display: grid;
   grid-template-columns: repeat(9, 1fr);
   align-items: center;
