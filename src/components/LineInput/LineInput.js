@@ -1,5 +1,4 @@
 import "./LineInput.scss";
-import InputButton from "../InputButton/InputButton.js";
 
 const LineInput = (props) => {
   let labelJsx = <label className="regular-font-size">{props.label}</label>;
@@ -8,11 +7,6 @@ const LineInput = (props) => {
     <div className="form-question">
       {labelJsx}
       <span className="regular-font-size">{props.data.value}</span>
-      <InputButton
-        saved={props.data.saved}
-        lineInputEdit={props.lineInputEdit}
-        state={props.state}
-      />
     </div>
   ) : (
     <form className="form-question" onSubmit={props.lineInputSave}>
@@ -25,7 +19,6 @@ const LineInput = (props) => {
         onChange={props.lineInputChange}
         required
       />
-      <InputButton saved={props.data.saved} />
     </form>
   );
 };
