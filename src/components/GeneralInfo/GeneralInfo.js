@@ -6,7 +6,7 @@ const GeneralInfo = (props) => {
   let answerData = props.data.answers[0];
 
   return (
-    <form state="generalInfo">
+    <form state="generalInfo" onSubmit={props.sectionSaveEdit}>
       <FormHeading title="General Info" />
       <div className="group-order-indicator" grouporder="0">
         <LineInput
@@ -34,7 +34,10 @@ const GeneralInfo = (props) => {
           saved={props.data.saved}
         />
         <div className="buttons-container">
-          <Button buttonText="Save" buttonType="submit" />
+          <Button
+            buttonText={props.data.saved ? "Edit" : "Save"}
+            buttonType="submit"
+          />
         </div>
       </div>
     </form>
