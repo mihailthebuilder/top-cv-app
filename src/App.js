@@ -4,9 +4,9 @@ import "./App.scss";
 import GeneralInfo from "./components/GeneralInfo/GeneralInfo.js";
 import Education from "./components/Education/Education.js";
 
-function AnswerObj(values = [], newEntry = false) {
-  this.answers = [];
-  this.newEntry = false;
+function AnswerObj(answers = [], saved = false) {
+  this.answers = answers;
+  this.saved = false;
 }
 
 class App extends Component {
@@ -14,7 +14,7 @@ class App extends Component {
     super(props);
 
     this.state = {
-      generalInfo: new AnswerObj(),
+      generalInfo: new AnswerObj([{ name: "", email: "", phone: "" }]),
       education: new AnswerObj(),
       jobs: new AnswerObj(),
     };
@@ -23,10 +23,21 @@ class App extends Component {
   }
 
   inputChange(event) {
-    let stateKey = event.target.closest("form").getAttribute("state");
-    let groupOrder = event.target
-      .closest(".group-order-indicator")
-      .getAttribute("groupOrder");
+    this.setState((state) => {
+      let stateKey = event.target.closest("form").getAttribute("state");
+      let groupOrder = event.target
+        .closest(".group-order-indicator")
+        .getAttribute("groupOrder");
+      let inputKey = event.target.getAttribute("inputkey");
+
+      let newState = state[stateKey];
+      newState.answers[groupOrder][inputKey] = event.target.value;
+
+      let returnStateobj = {};
+      returnStateobj[stateKey] = newState;
+
+      return returnStateobj;
+    });
   }
 
   render() {
@@ -39,10 +50,6 @@ class App extends Component {
           <GeneralInfo
             data={this.state.generalInfo}
             inputChange={this.inputChange}
-          />
-          <Education
-            data={this.state.education}
-            newEntry={this.newEntryButtonClick}
           />
         </div>
       </div>

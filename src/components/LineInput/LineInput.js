@@ -3,20 +3,20 @@ import "./LineInput.scss";
 const LineInput = (props) => {
   let labelJsx = <label className="regular-font-size">{props.label}</label>;
 
-  return props.data.saved ? (
+  return props.saved ? (
     <div className="form-question">
       {labelJsx}
-      <span className="regular-font-size">{props.data.value}</span>
+      <span className="regular-font-size">{props.inputValue}</span>
     </div>
   ) : (
-    <div className="form-question" onSubmit={props.lineInputSave}>
+    <div className="form-question">
       {labelJsx}
       <input
         type={props.type}
         className="hover-highlight regular-font-size border-radius border-width"
-        value={props.data.value}
-        inputKey={props.inputKey}
-        onChange={props.lineInputChange}
+        value={props.inputValue}
+        inputkey={props.inputkey}
+        onChange={props.inputChange}
         required
       />
     </div>
