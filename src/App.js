@@ -4,12 +4,7 @@ import "./App.scss";
 import GeneralInfo from "./components/GeneralInfo/GeneralInfo.js";
 import Education from "./components/Education/Education.js";
 
-function LineQuestionObj(value = "", saved = false) {
-  this.value = value;
-  this.saved = saved;
-}
-
-function MultiAnswerObj(values = [], newEntry = false) {
+function AnswerObj(values = [], newEntry = false) {
   this.answers = [];
   this.newEntry = false;
 }
@@ -19,68 +14,19 @@ class App extends Component {
     super(props);
 
     this.state = {
-      name: new LineQuestionObj(),
-      email: new LineQuestionObj(),
-      phone: new LineQuestionObj(),
-      education: new MultiAnswerObj(),
-      jobs: new MultiAnswerObj(),
+      generalInfo: new AnswerObj(),
+      education: new AnswerObj(),
+      jobs: new AnswerObj(),
     };
 
-    this.lineInputChange = this.lineInputChange.bind(this);
-    this.lineInputSave = this.lineInputSave.bind(this);
-    this.lineInputEdit = this.lineInputEdit.bind(this);
-    this.newEntryButtonClick = this.newEntryButtonClick.bind(this);
+    this.inputChange = this.inputChange.bind(this);
   }
 
-  lineInputChange(event) {
-    let stateKey = event.target.getAttribute("state");
-
-    let updatedState = {};
-    updatedState[stateKey] = new LineQuestionObj(event.target.value);
-
-    this.setState(updatedState);
-  }
-
-  lineInputSave(event) {
-    event.preventDefault();
-
-    this.setState((state) => {
-      let stateKey = event.target.querySelector("input").getAttribute("state");
-      let updatedState = {};
-      updatedState[stateKey] = new LineQuestionObj(state[stateKey].value, true);
-
-      return updatedState;
-    });
-  }
-
-  lineInputEdit(event) {
-    this.setState((state) => {
-      let stateKey = event.target.closest("button").getAttribute("state");
-
-      let updatedState = {};
-      updatedState[stateKey] = new LineQuestionObj(
-        state[stateKey].value,
-        false
-      );
-
-      return updatedState;
-    });
-  }
-
-  newEntryButtonClick(event) {
-    console.log("newEntryButtonClick triggered");
-
-    this.setState((state) => {
-      let stateKey = event.target.getAttribute("state");
-
-      let updatedState = {};
-      updatedState[stateKey] = new MultiAnswerObj(
-        state[stateKey].answers,
-        true
-      );
-
-      return updatedState;
-    });
+  inputChange(event) {
+    let stateKey = event.target.closest("form").getAttribute("state");
+    let groupOrder = event.target
+      .closest(".group-order-indicator")
+      .getAttribute("groupOrder");
   }
 
   render() {
@@ -91,15 +37,11 @@ class App extends Component {
         </div>
         <div className="form-body-container">
           <GeneralInfo
-            nameData={this.state.name}
-            emailData={this.state.email}
-            phoneData={this.state.phone}
-            lineInputChange={this.lineInputChange}
-            lineInputSave={this.lineInputSave}
-            lineInputEdit={this.lineInputEdit}
+            data={this.state.generalInfo}
+            inputChange={this.inputChange}
           />
           <Education
-            educationData={this.state.education}
+            data={this.state.education}
             newEntry={this.newEntryButtonClick}
           />
         </div>

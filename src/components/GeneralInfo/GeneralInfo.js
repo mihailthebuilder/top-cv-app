@@ -4,25 +4,35 @@ import Button from "../Button/Button.js";
 
 const GeneralInfo = (props) => {
   return (
-    <div>
+    <form state="generalInfo">
       <FormHeading title="General Info" />
-      <LineInput label="Name" state="name" data={props.nameData} type="text" />
-      <LineInput
-        label="Email"
-        state="email"
-        data={props.emailData}
-        type="email"
-      />
-      <LineInput
-        label="Phone number"
-        state="phone"
-        data={props.phoneData}
-        type="text"
-      />
-      <div className="buttons-container">
-        <Button buttonText="Save" buttonTrigger="" />
+      <div className="group-order-indicator" groupOrder="0">
+        <LineInput
+          label="Name"
+          inputKey="name"
+          data={props.data[0].name}
+          type="text"
+          inputChange={props.inputChange}
+        />
+        <LineInput
+          label="Email"
+          inputKey="email"
+          data={props.data}
+          type="email"
+          inputChange={props.inputChange}
+        />
+        <LineInput
+          label="Phone number"
+          inputKey="phone"
+          data={props.data}
+          type="text"
+          inputChange={props.inputChange}
+        />
+        <div className="buttons-container">
+          <Button buttonText="Save" buttonType="submit" />
+        </div>
       </div>
-    </div>
+    </form>
   );
 };
 
