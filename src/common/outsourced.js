@@ -7,7 +7,8 @@ function AnswerObj(answers = [], saved = false, newEntry = false) {
 const copyAnswerObj = (obj) => {
   let newObj = new AnswerObj(
     obj.answers.map((a) => Object.assign({}, a)),
-    obj.saved
+    obj.saved,
+    obj.newEntry
   );
   return newObj;
 };

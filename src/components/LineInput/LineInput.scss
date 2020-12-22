@@ -34,7 +34,8 @@
 
 @media (max-width: $tablet-screen) {
   .form-question {
-    grid-template-rows: 8vw 13vw;
+    margin-top: $line-spacing-responsive;
+    grid-template-rows: 4vw 14vw;
     label {
       grid-column-end: span 9;
     }

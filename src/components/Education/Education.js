@@ -11,7 +11,11 @@ const Education = (props) => {
       !(props.data.newEntry && key + 1 === props.data.answers.length);
 
     return (
-      <div className="group-order-indicator" grouporder={key} key={key}>
+      <div
+        className="group-order-indicator"
+        grouporder={key}
+        key={key.toString() + "-education"}
+      >
         <LineInput
           label="School name"
           inputkey="school"
@@ -68,7 +72,6 @@ const Education = (props) => {
     ) : (
       <div className="buttons-container">
         <Button buttonText="Edit" buttonType="submit" />
-        <div></div>
         <div></div>
         <Button
           buttonText="Add"

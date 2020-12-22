@@ -51,9 +51,15 @@ class App extends Component {
       let stateKey = getStateAttr(event.target);
 
       let newState = copyAnswerObj(state[stateKey]);
-      newState.saved = !newState.saved;
-      newState.newEntry = false;
 
+      if (newState.newEntry) {
+        newState.newEntry = false;
+        newState.saved = true;
+      } else {
+        newState.saved = !newState.saved;
+      }
+
+      console.log(newState);
       return returnStateObj(newState, stateKey);
     });
   }
