@@ -19,8 +19,8 @@ const returnStateObj = (newState, stateKey) => {
   return returnObj;
 };
 
-function getStateAttr(elem) {
+const getStateAttr = (elem) => {
   return elem.closest("form").getAttribute("state");
-}
+};
 
 export { AnswerObj, copyAnswerObj, returnStateObj, getStateAttr };

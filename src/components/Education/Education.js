@@ -55,7 +55,6 @@ const Education = (props) => {
         />
         {!props.data.newEntry && !props.data.saved && (
           <div className="buttons-container">
-            {" "}
             <Button
               buttonText="Delete"
               buttonType="button"

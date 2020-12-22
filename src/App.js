@@ -92,6 +92,14 @@ class App extends Component {
     });
   }
 
+  deleteEntry(event) {
+    this.setState((state) => {
+      let stateKey = getStateAttr(event.target);
+
+      let newState = copyAnswerObj(state[stateKey]);
+    });
+  }
+
   render() {
     return (
       <div className="form-container">
