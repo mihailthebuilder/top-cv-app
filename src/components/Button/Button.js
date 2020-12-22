@@ -5,9 +5,15 @@ const Button = (props) => {
     ? props.clickFunc
     : () => {};
 
+  let buttonClass = "btn border-radius border-width regular-font-size ";
+
+  buttonClass += props.hasOwnProperty("additionalClass")
+    ? props.additionalClass
+    : "normal";
+
   return (
     <button
-      className="btn border-radius border-width regular-font-size"
+      className={buttonClass}
       type={props.buttonType}
       onClick={buttonClick}
     >

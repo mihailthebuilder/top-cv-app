@@ -10,8 +10,6 @@ const Education = (props) => {
       props.data.saved &&
       !(props.data.newEntry && key + 1 === props.data.answers.length);
 
-    console.log(key);
-
     return (
       <div
         className="group-order-indicator"
@@ -55,6 +53,17 @@ const Education = (props) => {
           saved={savedLineInput}
           required
         />
+        {!props.data.newEntry && !props.data.saved && (
+          <div className="buttons-container">
+            {" "}
+            <Button
+              buttonText="Delete"
+              buttonType="button"
+              clickFunc={props.deleteEntry}
+              additionalClass="danger"
+            />
+          </div>
+        )}
       </div>
     );
   });

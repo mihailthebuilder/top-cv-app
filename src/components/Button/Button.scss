@@ -3,21 +3,33 @@
 .btn {
   padding: 1rem 0;
   width: 100%;
-
-  background-color: $dark-lava;
-  border-color: $saffron;
-  border-style: solid;
   cursor: pointer;
-
-  color: $saffron;
-  transition: $transition-time;
   outline: none;
-
   margin-top: $line-spacing;
+  transition: $transition-time;
+  border-style: solid;
 }
 
-.btn:hover {
+.normal {
+  background-color: $dark-lava;
+  border-color: $saffron;
+  color: $saffron;
+}
+
+.danger {
+  background-color: $dark-lava;
+  border-color: $tart-orange;
+  color: $tart-orange;
+}
+
+.normal:hover {
   background-color: $saffron;
+  border-color: $dark-lava;
+  color: $dark-lava;
+}
+
+.danger:hover {
+  background-color: $tart-orange;
   border-color: $dark-lava;
   color: $dark-lava;
 }
