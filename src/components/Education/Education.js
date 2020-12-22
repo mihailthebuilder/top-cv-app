@@ -2,6 +2,7 @@ import "./Education.scss";
 import FormHeading from "../FormHeading/FormHeading.js";
 import Button from "../Button/Button.js";
 import LineInput from "../LineInput/LineInput.js";
+import EntryBreak from "../EntryBreak/EntryBreak.js";
 
 const Education = (props) => {
   let entries = props.data.answers.map((answer, key) => {
@@ -10,12 +11,15 @@ const Education = (props) => {
       props.data.saved &&
       !(props.data.newEntry && key + 1 === props.data.answers.length);
 
+    console.log(key);
+
     return (
       <div
         className="group-order-indicator"
         grouporder={key}
         key={key.toString() + "-education"}
       >
+        {key > 0 && <EntryBreak />}
         <LineInput
           label="School name"
           inputkey="school"
