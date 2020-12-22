@@ -52,10 +52,8 @@ const Education = (props) => {
     );
   });
 
-  return (
-    <form state="education" onSubmit={props.sectionSaveEdit}>
-      <FormHeading title="Education" />
-      {entries}
+  let buttonsContainer =
+    props.data.answers.length === 0 ? (
       <div className="buttons-container">
         <Button
           buttonText="Add"
@@ -63,6 +61,28 @@ const Education = (props) => {
           clickFunc={props.newEntry}
         />
       </div>
+    ) : props.data.newEntry || !props.data.saved ? (
+      <div className="buttons-container">
+        <Button buttonText="Save" buttonType="submit" />
+      </div>
+    ) : (
+      <div className="buttons-container">
+        <Button buttonText="Edit" buttonType="submit" />
+        <div></div>
+        <div></div>
+        <Button
+          buttonText="Add"
+          buttonType="button"
+          clickFunc={props.newEntry}
+        />
+      </div>
+    );
+
+  return (
+    <form state="education" onSubmit={props.sectionSaveEdit}>
+      <FormHeading title="Education" />
+      {entries}
+      {buttonsContainer}
     </form>
   );
 };
