@@ -30,7 +30,7 @@ const GeneralInfo = (props) => {
         <LineInput
           label="Phone number"
           inputkey="phone"
-          type="text"
+          type="number"
           inputChange={props.inputChange}
           inputValue={answerData.phone}
           saved={props.data.saved}

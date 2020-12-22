@@ -59,7 +59,6 @@ class App extends Component {
         newState.saved = !newState.saved;
       }
 
-      console.log(newState);
       return returnStateObj(newState, stateKey);
     });
   }
