@@ -1,25 +1,15 @@
 import React, { Component } from "react";
 import "./App.scss";
 
+import {
+  AnswerObj,
+  copyAnswerObj,
+  returnStateObj,
+  getStateAttr,
+} from "./common/outsourced.js";
+
 import GeneralInfo from "./components/GeneralInfo/GeneralInfo.js";
 import Education from "./components/Education/Education.js";
-
-function AnswerObj(answers = [], saved = false) {
-  this.answers = answers;
-  this.saved = saved;
-}
-
-const copyAnswerObj = (obj) => {
-  let newObj = new AnswerObj(
-    obj.answers.map((a) => Object.assign({}, a)),
-    obj.saved
-  );
-  return newObj;
-};
-
-function getStateAttr(elem) {
-  return elem.closest("form").getAttribute("state");
-}
 
 class App extends Component {
   constructor(props) {
@@ -33,6 +23,7 @@ class App extends Component {
 
     this.inputChange = this.inputChange.bind(this);
     this.sectionSaveEdit = this.sectionSaveEdit.bind(this);
+    this.newEntry = this.newEntry.bind(this);
   }
 
   inputChange(event) {
@@ -46,10 +37,7 @@ class App extends Component {
       let newState = copyAnswerObj(state[stateKey]);
       newState.answers[groupOrder][inputKey] = event.target.value;
 
-      let returnStateobj = {};
-      returnStateobj[stateKey] = newState;
-
-      return returnStateobj;
+      return returnStateObj(newState, stateKey);
     });
   }
 
@@ -62,10 +50,18 @@ class App extends Component {
       let newState = copyAnswerObj(state[stateKey]);
       newState.saved = !newState.saved;
 
-      let returnStateObj = {};
-      returnStateObj[stateKey] = newState;
+      return returnStateObj(newState, stateKey);
+    });
+  }
 
-      return returnStateObj;
+  newEntry(event) {
+    this.setState((state) => {
+      let stateKey = getStateAttr(event.target);
+
+      let newState = copyAnswerObj(state[stateKey]);
+      newState.newEntry = true;
+
+      return returnStateObj(newState, stateKey);
     });
   }
 
@@ -85,6 +81,7 @@ class App extends Component {
             data={this.state.education}
             inputChange={this.inputChange}
             sectionSaveEdit={this.sectionSaveEdit}
+            newEntry={this.newEntry}
           />
         </div>
       </div>
