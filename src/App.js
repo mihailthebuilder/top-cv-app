@@ -29,12 +29,15 @@ class App extends Component {
   inputChange(event) {
     this.setState((state) => {
       let stateKey = getStateAttr(event.target);
-      let groupOrder = event.target
-        .closest(".group-order-indicator")
-        .getAttribute("groupOrder");
+      let groupOrder = parseInt(
+        event.target
+          .closest(".group-order-indicator")
+          .getAttribute("grouporder")
+      );
       let inputKey = event.target.getAttribute("inputkey");
 
       let newState = copyAnswerObj(state[stateKey]);
+
       newState.answers[groupOrder][inputKey] = event.target.value;
 
       return returnStateObj(newState, stateKey);
@@ -49,6 +52,7 @@ class App extends Component {
 
       let newState = copyAnswerObj(state[stateKey]);
       newState.saved = !newState.saved;
+      newState.newEntry = false;
 
       return returnStateObj(newState, stateKey);
     });
@@ -60,6 +64,24 @@ class App extends Component {
 
       let newState = copyAnswerObj(state[stateKey]);
       newState.newEntry = true;
+
+      let newEntryObj =
+        stateKey === "education"
+          ? {
+              school: "",
+              course: "",
+              dateFrom: "",
+              dateTo: "",
+            }
+          : {
+              employer: "",
+              jobTitle: "",
+              mainTasks: "",
+              dateFrom: "",
+              dateTo: "",
+            };
+
+      newState.answers.push(newEntryObj);
 
       return returnStateObj(newState, stateKey);
     });
