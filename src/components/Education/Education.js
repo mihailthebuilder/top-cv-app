@@ -1,4 +1,3 @@
-import "./Education.scss";
 import FormHeading from "../FormHeading/FormHeading.js";
 import Button from "../Button/Button.js";
 import LineInput from "../LineInput/LineInput.js";

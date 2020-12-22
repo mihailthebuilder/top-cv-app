@@ -4,5 +4,11 @@
   height: 0.4vw;
   background-color: $caribbean-green;
   width: 10vw;
-  margin-top: $line-spacing;
+  margin-top: 3vw;
+}
+
+@media (max-width: $tablet-screen) {
+  .entry-break {
+    margin-bottom: 8vw;
+  }
 }
