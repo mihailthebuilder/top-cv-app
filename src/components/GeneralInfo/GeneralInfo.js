@@ -16,7 +16,6 @@ const GeneralInfo = (props) => {
           type="text"
           inputChange={props.inputChange}
           saved={props.data.saved}
-          required
         />
         <LineInput
           label="Email"
@@ -25,7 +24,6 @@ const GeneralInfo = (props) => {
           inputChange={props.inputChange}
           inputValue={answerData.email}
           saved={props.data.saved}
-          required
         />
         <LineInput
           label="Phone number"
@@ -34,7 +32,6 @@ const GeneralInfo = (props) => {
           inputChange={props.inputChange}
           inputValue={answerData.phone}
           saved={props.data.saved}
-          required
         />
         <div className="buttons-container">
           <Button

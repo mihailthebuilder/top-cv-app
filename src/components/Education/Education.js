@@ -24,7 +24,6 @@ const Education = (props) => {
           inputChange={props.inputChange}
           inputValue={inputObj.school}
           saved={savedLineInput}
-          required
         />
         <LineInput
           label="Course name"
@@ -33,7 +32,6 @@ const Education = (props) => {
           inputChange={props.inputChange}
           inputValue={inputObj.course}
           saved={savedLineInput}
-          required
         />
         <LineInput
           label="Date from"
@@ -42,7 +40,6 @@ const Education = (props) => {
           inputChange={props.inputChange}
           inputValue={inputObj.dateFrom}
           saved={savedLineInput}
-          required
         />
         <LineInput
           label="Date to"
@@ -51,7 +48,6 @@ const Education = (props) => {
           inputChange={props.inputChange}
           inputValue={inputObj.dateTo}
           saved={savedLineInput}
-          required
         />
         {!props.data.newEntry && !props.data.saved && (
           <div className="buttons-container">
