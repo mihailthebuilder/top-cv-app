@@ -43,6 +43,7 @@ input[type="number"] {
   border-width: 0.2rem;
 }
 
+//this enables 2 buttons of equal width to appear in opposite edges of an element
 .buttons-container {
   display: grid;
   grid-template-columns: repeat(3, 1fr);

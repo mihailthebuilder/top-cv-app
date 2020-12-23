@@ -3,9 +3,11 @@ import LineInput from "../LineInput/LineInput.js";
 import Button from "../Button/Button.js";
 
 const GeneralInfo = (props) => {
+  //only need to get the first entry because you can't add new entries in this section
   let answerData = props.data.answers[0];
 
   return (
+    //see readme for purpose of state, grouporder and inputkey attributes.
     <form state="generalInfo" onSubmit={props.sectionSaveEdit}>
       <FormHeading title="General Info" />
       <div className="group-order-indicator" grouporder="0" key="0">

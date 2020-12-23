@@ -1,3 +1,6 @@
+/*almost all a copy of ./src/components/Education.js, with exception of <MultiLineInput /> which is needed to handle main responsibilities question using a textarea
+ */
+
 import FormHeading from "../FormHeading/FormHeading.js";
 import Button from "../Button/Button.js";
 import LineInput from "../LineInput/LineInput.js";

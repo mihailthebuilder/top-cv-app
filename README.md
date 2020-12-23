@@ -36,7 +36,10 @@ In order to achieve all the above, I needed to...
 
 ### Other
 
-Mobile & tablet responsive, with sizes (font, width, etc.) are generally split into two, one for desktop, another for tablet/mobile.
+Mobile & tablet responsive, with sizes (font, width, etc.) are generally split into...
+
+- one for desktop of a fixed value in rem
+- one for tablet/mobile that responds to the width of the screen (vw)
 
 `src/common/common.scss` has variables that are used across all components, including...
 

@@ -1,3 +1,4 @@
+//pretty much a copy of ./src/LineInput/LineInput.js, with exception of textarea element replacing input. Used for main responsibilities section.
 import "./MultiLineInput.scss";
 
 const MultiLineInput = (props) => {

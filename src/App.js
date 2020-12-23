@@ -17,7 +17,7 @@ class App extends Component {
   constructor(props) {
     super(props);
 
-    //holds the 3 states corresponding to each section. see readme for how AnswerObj is structured
+    //holds the 3 states corresponding to each section. see readme for the rationale behind the AnswerObj object
     this.state = {
       //generalInfo initialised with data because its input html elements appear from the start. For the other 2 sections, the inputs are created when newEntry is triggered.
       generalInfo: new AnswerObj([{ name: "", email: "", phone: "" }]),
@@ -73,13 +73,15 @@ class App extends Component {
     });
   }
 
+  //enables a new empty entry to appear
   newEntry(event) {
     this.setState((state) => {
       let stateKey = getStateAttr(event.target);
 
+      //create a copy of the existing  relevant state
       let newState = copyAnswerObj(state[stateKey]);
-      newState.newEntry = true;
 
+      //add an empty entry to the state. only need to consider Education and Work Experience sections as General Info doesn't need new entry to be added.
       let newEntryObj =
         stateKey === "education"
           ? {
@@ -98,17 +100,22 @@ class App extends Component {
 
       newState.answers.push(newEntryObj);
 
+      //indicate that the new entry is editable
+      newState.newEntry = true;
+
       return returnStateObj(newState, stateKey);
     });
   }
 
+  //deletes a specific entry
   deleteEntry(event) {
     this.setState((state) => {
+      //find out the entry
       let stateKey = getStateAttr(event.target);
       let entryOrder = getEntryOrder(event.target);
 
+      //remove the entry in the deep copy of the state
       let newState = copyAnswerObj(state[stateKey]);
-
       newState.answers.splice(entryOrder, 1);
 
       return returnStateObj(newState, stateKey);
