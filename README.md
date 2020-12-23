@@ -2,7 +2,7 @@
 
 ## Overview
 
-A React-based online job application form. Following along The Odin Project's course: https://www.theodinproject.com/lessons/cv-application
+A React-based online job application form. This is an assignment from The Odin Project: https://www.theodinproject.com/lessons/cv-application
 
 ## How it works
 
