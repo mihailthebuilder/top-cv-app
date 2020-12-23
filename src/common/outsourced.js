@@ -23,4 +23,16 @@ const getStateAttr = (elem) => {
   return elem.closest("form").getAttribute("state");
 };
 
-export { AnswerObj, copyAnswerObj, returnStateObj, getStateAttr };
+const getEntryOrder = (elem) => {
+  return parseInt(
+    elem.closest(".group-order-indicator").getAttribute("grouporder")
+  );
+};
+
+export {
+  AnswerObj,
+  copyAnswerObj,
+  returnStateObj,
+  getStateAttr,
+  getEntryOrder,
+};

@@ -6,6 +6,7 @@ import {
   copyAnswerObj,
   returnStateObj,
   getStateAttr,
+  getEntryOrder,
 } from "./common/outsourced.js";
 
 import GeneralInfo from "./components/GeneralInfo/GeneralInfo.js";
@@ -24,21 +25,18 @@ class App extends Component {
     this.inputChange = this.inputChange.bind(this);
     this.sectionSaveEdit = this.sectionSaveEdit.bind(this);
     this.newEntry = this.newEntry.bind(this);
+    this.deleteEntry = this.deleteEntry.bind(this);
   }
 
   inputChange(event) {
     this.setState((state) => {
       let stateKey = getStateAttr(event.target);
-      let groupOrder = parseInt(
-        event.target
-          .closest(".group-order-indicator")
-          .getAttribute("grouporder")
-      );
+      let entryOrder = getEntryOrder(event.target);
       let inputKey = event.target.getAttribute("inputkey");
 
       let newState = copyAnswerObj(state[stateKey]);
 
-      newState.answers[groupOrder][inputKey] = event.target.value;
+      newState.answers[entryOrder][inputKey] = event.target.value;
 
       return returnStateObj(newState, stateKey);
     });
@@ -95,8 +93,13 @@ class App extends Component {
   deleteEntry(event) {
     this.setState((state) => {
       let stateKey = getStateAttr(event.target);
+      let entryOrder = getEntryOrder(event.target);
 
       let newState = copyAnswerObj(state[stateKey]);
+
+      newState.answers.splice(entryOrder, 1);
+
+      return returnStateObj(newState, stateKey);
     });
   }
 
@@ -117,6 +120,7 @@ class App extends Component {
             inputChange={this.inputChange}
             sectionSaveEdit={this.sectionSaveEdit}
             newEntry={this.newEntry}
+            deleteEntry={this.deleteEntry}
           />
         </div>
       </div>
