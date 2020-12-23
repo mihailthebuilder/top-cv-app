@@ -24,23 +24,18 @@ class App extends Component {
       education: new AnswerObj(),
       jobs: new AnswerObj(),
     };
-
-    // this.inputChange = this.inputChange.bind(this);
-    // this.sectionSaveEdit = this.sectionSaveEdit.bind(this);
-    // this.newEntry = this.newEntry.bind(this);
-    // this.deleteEntry = this.deleteEntry.bind(this);
   }
 
   //handles any input changes
   inputChange = (event) => {
     this.setState((state) => {
       //these 3 values enable the function to figure out which state, entry and input it's being triggered by. See readme for more.
-      let stateKey = getStateAttr(event.target);
-      let entryOrder = getEntryOrder(event.target);
-      let inputKey = event.target.getAttribute("inputkey");
+      const stateKey = getStateAttr(event.target);
+      const entryOrder = getEntryOrder(event.target);
+      const inputKey = event.target.getAttribute("inputkey");
 
       //deep copy so we can make changes to state object
-      let newState = copyAnswerObj(state[stateKey]);
+      const newState = copyAnswerObj(state[stateKey]);
 
       //update the relevant input in the state
       newState.answers[entryOrder][inputKey] = event.target.value;
@@ -56,9 +51,9 @@ class App extends Component {
 
     this.setState((state) => {
       //figure out which section/state we need to update
-      let stateKey = getStateAttr(event.target);
+      const stateKey = getStateAttr(event.target);
 
-      let newState = copyAnswerObj(state[stateKey]);
+      const newState = copyAnswerObj(state[stateKey]);
 
       //if a new entry is being created, save that entry and switch
       if (newState.newEntry) {
@@ -75,13 +70,13 @@ class App extends Component {
   //enables a new empty entry to appear
   newEntry = (event) => {
     this.setState((state) => {
-      let stateKey = getStateAttr(event.target);
+      const stateKey = getStateAttr(event.target);
 
       //create a copy of the existing  relevant state
-      let newState = copyAnswerObj(state[stateKey]);
+      const newState = copyAnswerObj(state[stateKey]);
 
       //add an empty entry to the state. only need to consider Education and Work Experience sections as General Info doesn't need new entry to be added.
-      let newEntryObj =
+      const newEntryObj =
         stateKey === "education"
           ? {
               school: "",
@@ -110,11 +105,11 @@ class App extends Component {
   deleteEntry = (event) => {
     this.setState((state) => {
       //find out the entry
-      let stateKey = getStateAttr(event.target);
-      let entryOrder = getEntryOrder(event.target);
+      const stateKey = getStateAttr(event.target);
+      const entryOrder = getEntryOrder(event.target);
 
       //remove the entry in the deep copy of the state
-      let newState = copyAnswerObj(state[stateKey]);
+      const newState = copyAnswerObj(state[stateKey]);
       newState.answers.splice(entryOrder, 1);
 
       return returnStateObj(newState, stateKey);

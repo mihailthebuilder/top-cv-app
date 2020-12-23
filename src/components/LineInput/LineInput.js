@@ -1,7 +1,8 @@
+import React from "react";
 import "./LineInput.scss";
 
 const LineInput = (props) => {
-  let labelJsx = <label className="regular-font-size">{props.label}</label>;
+  const labelJsx = <label className="regular-font-size">{props.label}</label>;
 
   /*if input editable, render an input element, otherwise render a span element
   see readme for purpose of inputkey*/

@@ -1,10 +1,11 @@
+import React from "react";
 import FormHeading from "../FormHeading/FormHeading.js";
 import LineInput from "../LineInput/LineInput.js";
 import Button from "../Button/Button.js";
 
 const GeneralInfo = (props) => {
   //only need to get the first entry because you can't add new entries in this section
-  let answerData = props.data.answers[0];
+  const answerData = props.data.answers[0];
 
   return (
     //see readme for purpose of state, grouporder and inputkey attributes.

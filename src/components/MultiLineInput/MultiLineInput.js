@@ -1,8 +1,9 @@
+import React from "react";
 //pretty much a copy of ./src/LineInput/LineInput.js, with exception of textarea element replacing input. Used for main responsibilities section.
 import "./MultiLineInput.scss";
 
 const MultiLineInput = (props) => {
-  let labelJsx = <label className="regular-font-size">{props.label}</label>;
+  const labelJsx = <label className="regular-font-size">{props.label}</label>;
 
   return props.saved ? (
     <div className="textarea-question">

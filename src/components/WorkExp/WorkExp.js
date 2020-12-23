@@ -1,6 +1,6 @@
 /*almost all a copy of ./src/components/Education.js, with exception of <MultiLineInput /> which is needed to handle main responsibilities question using a textarea
  */
-
+import React from "react";
 import FormHeading from "../FormHeading/FormHeading.js";
 import Button from "../Button/Button.js";
 import LineInput from "../LineInput/LineInput.js";
@@ -8,9 +8,9 @@ import MultiLineInput from "../MultiLineInput/MultiLineInput.js";
 import EntryBreak from "../EntryBreak/EntryBreak.js";
 
 const WorkExp = (props) => {
-  let entries = props.data.answers.map((answer, key) => {
-    let inputObj = props.data.answers[key];
-    let savedLineInput =
+  const entries = props.data.answers.map((answer, key) => {
+    const inputObj = props.data.answers[key];
+    const savedLineInput =
       props.data.saved &&
       !(props.data.newEntry && key + 1 === props.data.answers.length);
 
@@ -74,7 +74,7 @@ const WorkExp = (props) => {
     );
   });
 
-  let buttonsContainer =
+  const buttonsContainer =
     props.data.answers.length === 0 ? (
       <div className="buttons-container">
         <Button
@@ -90,7 +90,7 @@ const WorkExp = (props) => {
     ) : (
       <div className="buttons-container">
         <Button buttonText="Edit" buttonType="submit" />
-        <div></div>
+        <div />
         <Button
           buttonText="Add"
           buttonType="button"

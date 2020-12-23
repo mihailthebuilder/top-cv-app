@@ -1,8 +1,9 @@
+import React from "react";
 import "./Button.scss";
 
 const Button = (props) => {
   //sometimes function may be passed which should be triggered on click
-  let buttonClick = props.hasOwnProperty("clickFunc")
+  const buttonClick = props.hasOwnProperty("clickFunc")
     ? props.clickFunc
     : () => {};
 
