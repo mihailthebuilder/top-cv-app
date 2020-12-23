@@ -118,6 +118,7 @@ class App extends Component {
 
   render() {
     const { education, generalInfo, jobs } = this.state;
+    const { inputChange, sectionSaveEdit, newEntry, deleteEntry } = this;
     return (
       <div className="form-container">
         <div className="form-heading-container">
@@ -126,22 +127,22 @@ class App extends Component {
         <div className="form-body-container">
           <GeneralInfo
             data={generalInfo}
-            inputChange={this.inputChange}
-            sectionSaveEdit={this.sectionSaveEdit}
+            inputChange={inputChange}
+            sectionSaveEdit={sectionSaveEdit}
           />
           <Education
             data={education}
-            inputChange={this.inputChange}
-            sectionSaveEdit={this.sectionSaveEdit}
-            newEntry={this.newEntry}
-            deleteEntry={this.deleteEntry}
+            inputChange={inputChange}
+            sectionSaveEdit={sectionSaveEdit}
+            newEntry={newEntry}
+            deleteEntry={deleteEntry}
           />
           <WorkExp
             data={jobs}
-            inputChange={this.inputChange}
-            sectionSaveEdit={this.sectionSaveEdit}
-            newEntry={this.newEntry}
-            deleteEntry={this.deleteEntry}
+            inputChange={inputChange}
+            sectionSaveEdit={sectionSaveEdit}
+            newEntry={newEntry}
+            deleteEntry={deleteEntry}
           />
         </div>
       </div>
