@@ -1,24 +1,24 @@
 @import "../../common/common.scss";
 
-.form-question {
+.textarea-question {
   margin-top: $line-spacing;
-  grid-template-rows: 3rem;
+  grid-template-rows: 15vw;
   display: grid;
   grid-template-columns: repeat(9, 1fr);
-  align-items: center;
+  align-items: top;
 
   label {
     grid-column-end: span 3;
   }
 
-  input {
+  textarea {
     border-style: solid;
     border-color: $saffron;
     padding: 0.5rem 1rem;
     width: 100%;
   }
 
-  input,
+  textarea,
   span {
     color: $saffron;
     grid-column-end: span 6;
@@ -33,19 +33,20 @@
 }
 
 @media (max-width: $tablet-screen) {
-  .form-question {
+  .textarea-question {
     margin-top: $line-spacing-responsive;
-    grid-template-rows: 4vw 14vw;
+    grid-template-rows: 8vw 25vw;
+    margin-bottom: 5vw;
     label {
       grid-column-end: span 9;
     }
 
-    input,
+    textarea,
     span {
       grid-column-end: span 9;
     }
 
-    input {
+    textarea {
       padding: 1vw 2vw;
     }
   }

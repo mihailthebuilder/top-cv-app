@@ -4,16 +4,16 @@ const MultiLineInput = (props) => {
   let labelJsx = <label className="regular-font-size">{props.label}</label>;
 
   return props.saved ? (
-    <div className="form-question">
+    <div className="textarea-question">
       {labelJsx}
       <span className="regular-font-size">{props.inputValue}</span>
     </div>
   ) : (
-    <div className="form-question">
+    <div className="textarea-question">
       {labelJsx}
-      <input
-        type={props.type}
+      <textarea
         className="hover-highlight regular-font-size border-radius border-width"
+        rows="4"
         value={props.inputValue}
         inputkey={props.inputkey}
         onChange={props.inputChange}

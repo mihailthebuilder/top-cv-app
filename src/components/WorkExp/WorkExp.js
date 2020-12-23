@@ -39,7 +39,6 @@ const WorkExp = (props) => {
         <MultiLineInput
           label="Main responsibilities"
           inputkey="mainTasks"
-          type="text"
           inputChange={props.inputChange}
           inputValue={inputObj.jobTitle}
           saved={savedLineInput}
