@@ -21,19 +21,18 @@ class App extends Component {
     this.state = {
       //generalInfo initialised with data because its input html elements appear from the start. For the other 2 sections, the inputs are created when newEntry is triggered.
       generalInfo: new AnswerObj([{ name: "", email: "", phone: "" }]),
-
       education: new AnswerObj(),
       jobs: new AnswerObj(),
     };
 
-    this.inputChange = this.inputChange.bind(this);
-    this.sectionSaveEdit = this.sectionSaveEdit.bind(this);
-    this.newEntry = this.newEntry.bind(this);
-    this.deleteEntry = this.deleteEntry.bind(this);
+    // this.inputChange = this.inputChange.bind(this);
+    // this.sectionSaveEdit = this.sectionSaveEdit.bind(this);
+    // this.newEntry = this.newEntry.bind(this);
+    // this.deleteEntry = this.deleteEntry.bind(this);
   }
 
   //handles any input changes
-  inputChange(event) {
+  inputChange = (event) => {
     this.setState((state) => {
       //these 3 values enable the function to figure out which state, entry and input it's being triggered by. See readme for more.
       let stateKey = getStateAttr(event.target);
@@ -48,10 +47,10 @@ class App extends Component {
 
       return returnStateObj(newState, stateKey);
     });
-  }
+  };
 
   //allows inputs to become editable and saves the changes
-  sectionSaveEdit(event) {
+  sectionSaveEdit = (event) => {
     //the function is triggered by a form submission, so we need to prevent the resulting page refresh
     event.preventDefault();
 
@@ -71,10 +70,10 @@ class App extends Component {
 
       return returnStateObj(newState, stateKey);
     });
-  }
+  };
 
   //enables a new empty entry to appear
-  newEntry(event) {
+  newEntry = (event) => {
     this.setState((state) => {
       let stateKey = getStateAttr(event.target);
 
@@ -105,10 +104,10 @@ class App extends Component {
 
       return returnStateObj(newState, stateKey);
     });
-  }
+  };
 
   //deletes a specific entry
-  deleteEntry(event) {
+  deleteEntry = (event) => {
     this.setState((state) => {
       //find out the entry
       let stateKey = getStateAttr(event.target);
@@ -120,7 +119,7 @@ class App extends Component {
 
       return returnStateObj(newState, stateKey);
     });
-  }
+  };
 
   render() {
     return (
