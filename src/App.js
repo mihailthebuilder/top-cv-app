@@ -11,6 +11,7 @@ import {
 
 import GeneralInfo from "./components/GeneralInfo/GeneralInfo.js";
 import Education from "./components/Education/Education.js";
+import WorkExp from "./components/WorkExp/WorkExp.js";
 
 class App extends Component {
   constructor(props) {
@@ -117,6 +118,13 @@ class App extends Component {
           />
           <Education
             data={this.state.education}
+            inputChange={this.inputChange}
+            sectionSaveEdit={this.sectionSaveEdit}
+            newEntry={this.newEntry}
+            deleteEntry={this.deleteEntry}
+          />
+          <WorkExp
+            data={this.state.jobs}
             inputChange={this.inputChange}
             sectionSaveEdit={this.sectionSaveEdit}
             newEntry={this.newEntry}

@@ -1,0 +1,61 @@
+@import "../../common/common.scss";
+
+.form-question {
+  margin-top: $line-spacing;
+  grid-template-rows: 3rem;
+  display: grid;
+  grid-template-columns: repeat(9, 1fr);
+  align-items: center;
+
+  label {
+    grid-column-end: span 3;
+  }
+
+  input {
+    border-style: solid;
+    border-color: $saffron;
+    padding: 0.5rem 1rem;
+    width: 100%;
+  }
+
+  input,
+  span {
+    color: $saffron;
+    grid-column-end: span 6;
+  }
+}
+
+.hover-highlight:focus,
+.hover-highlight:hover {
+  outline-style: none;
+  box-shadow: 0 0 1rem 0.05rem white;
+  transition: $transition-time;
+}
+
+@media (max-width: $tablet-screen) {
+  .form-question {
+    margin-top: $line-spacing-responsive;
+    grid-template-rows: 4vw 14vw;
+    label {
+      grid-column-end: span 9;
+    }
+
+    input,
+    span {
+      grid-column-end: span 9;
+    }
+
+    input {
+      padding: 1vw 2vw;
+    }
+  }
+}
+
+@media (max-width: $mobile-screen) {
+  .hover-highlight:focus,
+  .hover-highlight:hover {
+    outline-style: none;
+    box-shadow: 0 0 0.2rem 0.03rem white;
+    transition: $transition-time;
+  }
+}
