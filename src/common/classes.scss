@@ -43,6 +43,11 @@ input[type="number"] {
   border-width: 0.2rem;
 }
 
+.buttons-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
 @media (max-width: $tablet-screen) {
   h1 {
     font-size: 6vw;

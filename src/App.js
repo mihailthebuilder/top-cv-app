@@ -17,8 +17,11 @@ class App extends Component {
   constructor(props) {
     super(props);
 
+    //holds the 3 states corresponding to each section. see readme for how AnswerObj is structured
     this.state = {
+      //generalInfo initialised with data because its input html elements appear from the start. For the other 2 sections, the inputs are created when newEntry is triggered.
       generalInfo: new AnswerObj([{ name: "", email: "", phone: "" }]),
+
       education: new AnswerObj(),
       jobs: new AnswerObj(),
     };
@@ -29,28 +32,36 @@ class App extends Component {
     this.deleteEntry = this.deleteEntry.bind(this);
   }
 
+  //handles any input changes
   inputChange(event) {
     this.setState((state) => {
+      //these 3 values enable the function to figure out which state, entry and input it's being triggered by. See readme for more.
       let stateKey = getStateAttr(event.target);
       let entryOrder = getEntryOrder(event.target);
       let inputKey = event.target.getAttribute("inputkey");
 
+      //deep copy so we can make changes to state object
       let newState = copyAnswerObj(state[stateKey]);
 
+      //update the relevant input in the state
       newState.answers[entryOrder][inputKey] = event.target.value;
 
       return returnStateObj(newState, stateKey);
     });
   }
 
+  //allows inputs to become editable and saves the changes
   sectionSaveEdit(event) {
+    //the function is triggered by a form submission, so we need to prevent the resulting page refresh
     event.preventDefault();
 
     this.setState((state) => {
+      //figure out which section/state we need to update
       let stateKey = getStateAttr(event.target);
 
       let newState = copyAnswerObj(state[stateKey]);
 
+      //if a new entry is being created, save that entry and switch
       if (newState.newEntry) {
         newState.newEntry = false;
         newState.saved = true;

@@ -16,13 +16,18 @@ $padding-form-container: 2vw 7vw;
 .form-heading-container {
   background-color: $dark-lava;
   padding: $padding-form-container;
+
+  //rounds the edges of the form without rounding the edges of the two components that connect it
   border-radius: $border-radius $border-radius 0 0;
+
   padding: 2vw 0;
 }
 
 .form-body-container {
   padding: $padding-form-container;
   background-color: $bdazzled-blue;
+
+  //rounds the edges of the form without rounding the edges of the two components that connect it
   border-radius: 0 0 $border-radius $border-radius;
   padding: 4vw 8vw;
 
@@ -32,11 +37,6 @@ $padding-form-container: 2vw 7vw;
   * {
     font-weight: 600;
   }
-}
-
-.buttons-container {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
 }
 
 @media (max-width: $tablet-screen) {
