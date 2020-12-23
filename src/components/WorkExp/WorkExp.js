@@ -38,7 +38,7 @@ const WorkExp = (props) => {
           label="Main responsibilities"
           inputkey="mainTasks"
           inputChange={props.inputChange}
-          inputValue={inputObj.jobTitle}
+          inputValue={inputObj.mainTasks}
           saved={savedLineInput}
         />
         <LineInput
