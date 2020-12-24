@@ -63,11 +63,12 @@ const WorkExp = (props) => {
         {!props.data.newEntry && !props.data.saved && (
           <div className="buttons-container">
             <Button
-              buttonText="Delete"
               buttonType="button"
               clickFunc={props.deleteEntry}
               additionalClass="danger"
-            />
+            >
+              Delete
+            </Button>
           </div>
         )}
       </div>
@@ -77,25 +78,21 @@ const WorkExp = (props) => {
   const buttonsContainer =
     props.data.answers.length === 0 ? (
       <div className="buttons-container">
-        <Button
-          buttonText="Add"
-          buttonType="button"
-          clickFunc={props.newEntry}
-        />
+        <Button buttonType="button" clickFunc={props.newEntry}>
+          Add
+        </Button>
       </div>
     ) : props.data.newEntry || !props.data.saved ? (
       <div className="buttons-container">
-        <Button buttonText="Save" buttonType="submit" />
+        <Button buttonType="submit">Save</Button>
       </div>
     ) : (
       <div className="buttons-container">
-        <Button buttonText="Edit" buttonType="submit" />
+        <Button buttonType="submit">Edit</Button>
         <div />
-        <Button
-          buttonText="Add"
-          buttonType="button"
-          clickFunc={props.newEntry}
-        />
+        <Button buttonType="button" clickFunc={props.newEntry}>
+          Add
+        </Button>
       </div>
     );
 

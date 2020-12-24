@@ -68,11 +68,12 @@ const Education = ({
           !data.newEntry && !data.saved && (
             <div className="buttons-container">
               <Button
-                buttonText="Delete"
                 buttonType="button"
                 clickFunc={deleteEntry}
                 additionalClass="danger"
-              />
+              >
+                Delete
+              </Button>
             </div>
           )
         }
@@ -88,17 +89,25 @@ const Education = ({
   const buttonsContainer =
     data.answers.length === 0 ? (
       <div className="buttons-container">
-        <Button buttonText="Add" buttonType="button" clickFunc={newEntry} />
+        <Button
+          // buttonText="Add"
+          buttonType="button"
+          clickFunc={newEntry}
+        >
+          Add
+        </Button>
       </div>
     ) : data.newEntry || !data.saved ? (
       <div className="buttons-container">
-        <Button buttonText="Save" buttonType="submit" />
+        <Button buttonType="submit">Save</Button>
       </div>
     ) : (
       <div className="buttons-container">
-        <Button buttonText="Edit" buttonType="submit" />
+        <Button buttonType="submit">Edit</Button>
         <div />
-        <Button buttonText="Add" buttonType="button" clickFunc={newEntry} />
+        <Button buttonType="button" clickFunc={newEntry}>
+          Add
+        </Button>
       </div>
     );
 

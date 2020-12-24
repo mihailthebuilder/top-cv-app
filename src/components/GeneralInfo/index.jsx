@@ -37,10 +37,9 @@ const GeneralInfo = (props) => {
           saved={props.data.saved}
         />
         <div className="buttons-container">
-          <Button
-            buttonText={props.data.saved ? "Edit" : "Save"}
-            buttonType="submit"
-          />
+          <Button buttonType="submit">
+            {props.data.saved ? "Edit" : "Save"}
+          </Button>
         </div>
       </div>
     </form>

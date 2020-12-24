@@ -1,26 +1,16 @@
 import React from "react";
 import "./Button.scss";
 
-const Button = (props) => {
-  //sometimes function may be passed which should be triggered on click
-  const buttonClick = props.hasOwnProperty("clickFunc")
-    ? props.clickFunc
-    : () => {};
-
-  let buttonClass = "btn border-radius border-width regular-font-size ";
-
-  //sometimes additional styling class passed
-  buttonClass += props.hasOwnProperty("additionalClass")
-    ? props.additionalClass
-    : "normal";
-
+const Button = ({ clickFunc, additionalClass, buttonType, children }) => {
   return (
     <button
-      className={buttonClass}
-      type={props.buttonType}
-      onClick={buttonClick}
+      className={`btn border-radius border-width regular-font-size ${
+        additionalClass ? additionalClass : "normal"
+      }`}
+      type={buttonType}
+      onClick={(e) => (clickFunc ? clickFunc(e) : () => {})}
     >
-      {props.buttonText}
+      {children}
     </button>
   );
 };
