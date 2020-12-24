@@ -1,29 +1,26 @@
 import React from "react";
 import "./LineInput.scss";
 
-const LineInput = (props) => {
-  const labelJsx = <label className="regular-font-size">{props.label}</label>;
-
+const LineInput = ({ label, type, saved, inputValue, inputkey, inputChange }) =>
   /*if input editable, render an input element, otherwise render a span element
   see readme for purpose of inputkey*/
-  return props.saved ? (
+  saved ? (
     <div className="form-question">
-      {labelJsx}
-      <span className="regular-font-size">{props.inputValue}</span>
+      <label className="regular-font-size">{label}</label>
+      <span className="regular-font-size">{inputValue}</span>
     </div>
   ) : (
     <div className="form-question">
-      {labelJsx}
+      <label className="regular-font-size">{label}</label>
       <input
-        type={props.type}
+        type={type}
         className="hover-highlight regular-font-size border-radius border-width"
-        value={props.inputValue}
-        inputkey={props.inputkey}
-        onChange={props.inputChange}
+        value={inputValue}
+        inputkey={inputkey}
+        onChange={inputChange}
         required
       />
     </div>
   );
-};
 
 export default LineInput;
