@@ -1,16 +1,18 @@
 import React from "react";
-//pretty much a copy of ./src/LineInput/LineInput.js, with exception of textarea element replacing input. Used for main responsibilities section.
 import "./MultiLineInput.scss";
 
-const MultiLineInput = ({ label, saved, inputValue, inputkey, inputChange }) =>
-  saved ? (
-    <div className="textarea-question">
-      <label className="regular-font-size">{label}</label>
+const MultiLineInput = ({
+  label,
+  saved,
+  inputValue,
+  inputkey,
+  inputChange,
+}) => (
+  <div className="textarea-question">
+    <label className="regular-font-size">{label}</label>
+    {saved ? (
       <span className="regular-font-size">{inputValue}</span>
-    </div>
-  ) : (
-    <div className="textarea-question">
-      <label className="regular-font-size">{label}</label>
+    ) : (
       <textarea
         className="hover-highlight regular-font-size border-radius border-width"
         rows="4"
@@ -19,7 +21,8 @@ const MultiLineInput = ({ label, saved, inputValue, inputkey, inputChange }) =>
         onChange={inputChange}
         required
       />
-    </div>
-  );
+    )}
+  </div>
+);
 
 export default MultiLineInput;
