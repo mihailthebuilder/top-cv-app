@@ -7,12 +7,19 @@ import LineInput from "../LineInput";
 import MultiLineInput from "../MultiLineInput";
 import EntryBreak from "../EntryBreak";
 
-const WorkExp = (props) => {
-  const entries = props.data.answers.map((answer, key) => {
-    const inputObj = props.data.answers[key];
+const WorkExp = ({
+  data,
+  inputChange,
+  deleteEntry,
+  newEntry,
+  sectionSaveEdit,
+}) => {
+  const entries = data.answers.map((answer, key) => {
+    const { employer, jobTitle, mainTasks, dateFrom, dateTo } = data.answers[
+      key
+    ];
     const savedLineInput =
-      props.data.saved &&
-      !(props.data.newEntry && key + 1 === props.data.answers.length);
+      data.saved && !(data.newEntry && key + 1 === data.answers.length);
 
     return (
       <div
@@ -25,46 +32,46 @@ const WorkExp = (props) => {
           label="Company name"
           inputkey="employer"
           type="text"
-          inputChange={props.inputChange}
-          inputValue={inputObj.employer}
+          inputChange={inputChange}
+          inputValue={employer}
           saved={savedLineInput}
         />
         <LineInput
           label="Job title"
           inputkey="jobTitle"
           type="text"
-          inputChange={props.inputChange}
-          inputValue={inputObj.jobTitle}
+          inputChange={inputChange}
+          inputValue={jobTitle}
           saved={savedLineInput}
         />
         <MultiLineInput
           label="Main responsibilities"
           inputkey="mainTasks"
-          inputChange={props.inputChange}
-          inputValue={inputObj.mainTasks}
+          inputChange={inputChange}
+          inputValue={mainTasks}
           saved={savedLineInput}
         />
         <LineInput
           label="Date from"
           inputkey="dateFrom"
           type="date"
-          inputChange={props.inputChange}
-          inputValue={inputObj.dateFrom}
+          inputChange={inputChange}
+          inputValue={dateFrom}
           saved={savedLineInput}
         />
         <LineInput
           label="Date to"
           inputkey="dateTo"
           type="date"
-          inputChange={props.inputChange}
-          inputValue={inputObj.dateTo}
+          inputChange={inputChange}
+          inputValue={dateTo}
           saved={savedLineInput}
         />
-        {!props.data.newEntry && !props.data.saved && (
+        {!data.newEntry && !data.saved && (
           <div className="buttons-container">
             <Button
               buttonType="button"
-              clickFunc={props.deleteEntry}
+              clickFunc={deleteEntry}
               additionalClass="danger"
             >
               Delete
@@ -76,13 +83,13 @@ const WorkExp = (props) => {
   });
 
   const buttonsContainer =
-    props.data.answers.length === 0 ? (
+    data.answers.length === 0 ? (
       <div className="buttons-container">
-        <Button buttonType="button" clickFunc={props.newEntry}>
+        <Button buttonType="button" clickFunc={newEntry}>
           Add
         </Button>
       </div>
-    ) : props.data.newEntry || !props.data.saved ? (
+    ) : data.newEntry || !data.saved ? (
       <div className="buttons-container">
         <Button buttonType="submit">Save</Button>
       </div>
@@ -90,14 +97,14 @@ const WorkExp = (props) => {
       <div className="buttons-container">
         <Button buttonType="submit">Edit</Button>
         <div />
-        <Button buttonType="button" clickFunc={props.newEntry}>
+        <Button buttonType="button" clickFunc={newEntry}>
           Add
         </Button>
       </div>
     );
 
   return (
-    <form state="jobs" onSubmit={props.sectionSaveEdit}>
+    <form state="jobs" onSubmit={sectionSaveEdit}>
       <FormHeading title="Work Experience" />
       {entries}
       {buttonsContainer}
