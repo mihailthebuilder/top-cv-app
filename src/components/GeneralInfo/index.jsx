@@ -3,43 +3,42 @@ import FormHeading from "../FormHeading";
 import LineInput from "../LineInput";
 import Button from "../Button";
 
-const GeneralInfo = (props) => {
+const GeneralInfo = ({ data, sectionSaveEdit, inputChange }) => {
   //only need to get the first entry because you can't add new entries in this section
-  const answerData = props.data.answers[0];
+  const { saved } = data;
+  const { name, email, phone } = data.answers[0];
 
   return (
     //see readme for purpose of state, grouporder and inputkey attributes.
-    <form state="generalInfo" onSubmit={props.sectionSaveEdit}>
+    <form state="generalInfo" onSubmit={sectionSaveEdit}>
       <FormHeading title="General Info" />
       <div className="group-order-indicator" grouporder="0" key="0">
         <LineInput
           label="Name"
           inputkey="name"
-          inputValue={answerData.name}
+          inputValue={name}
           type="text"
-          inputChange={props.inputChange}
-          saved={props.data.saved}
+          inputChange={inputChange}
+          saved={saved}
         />
         <LineInput
           label="Email"
           inputkey="email"
           type="email"
-          inputChange={props.inputChange}
-          inputValue={answerData.email}
-          saved={props.data.saved}
+          inputChange={inputChange}
+          inputValue={email}
+          saved={saved}
         />
         <LineInput
           label="Phone number"
           inputkey="phone"
           type="number"
-          inputChange={props.inputChange}
-          inputValue={answerData.phone}
-          saved={props.data.saved}
+          inputChange={inputChange}
+          inputValue={phone}
+          saved={saved}
         />
         <div className="buttons-container">
-          <Button buttonType="submit">
-            {props.data.saved ? "Edit" : "Save"}
-          </Button>
+          <Button buttonType="submit">{saved ? "Edit" : "Save"}</Button>
         </div>
       </div>
     </form>
