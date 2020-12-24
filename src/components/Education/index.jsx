@@ -13,7 +13,7 @@ const Education = ({
 }) => {
   //generates all the entries that need to be rendered in this section
   const entries = data.answers.map((answer, key) => {
-    const inputObj = data.answers[key];
+    const { school, course, dateFrom, dateTo } = data.answers[key];
 
     //determines whether line input should be editable
     const savedLineInput =
@@ -35,7 +35,7 @@ const Education = ({
           inputkey="school"
           type="text"
           inputChange={inputChange}
-          inputValue={inputObj.school}
+          inputValue={school}
           saved={savedLineInput}
         />
         <LineInput
@@ -43,7 +43,7 @@ const Education = ({
           inputkey="course"
           type="text"
           inputChange={inputChange}
-          inputValue={inputObj.course}
+          inputValue={course}
           saved={savedLineInput}
         />
         <LineInput
@@ -51,7 +51,7 @@ const Education = ({
           inputkey="dateFrom"
           type="date"
           inputChange={inputChange}
-          inputValue={inputObj.dateFrom}
+          inputValue={dateFrom}
           saved={savedLineInput}
         />
         <LineInput
@@ -59,7 +59,7 @@ const Education = ({
           inputkey="dateTo"
           type="date"
           inputChange={inputChange}
-          inputValue={inputObj.dateTo}
+          inputValue={dateTo}
           saved={savedLineInput}
         />
         {
@@ -89,11 +89,7 @@ const Education = ({
   const buttonsContainer =
     data.answers.length === 0 ? (
       <div className="buttons-container">
-        <Button
-          // buttonText="Add"
-          buttonType="button"
-          clickFunc={newEntry}
-        >
+        <Button buttonType="button" clickFunc={newEntry}>
           Add
         </Button>
       </div>
