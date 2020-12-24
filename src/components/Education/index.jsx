@@ -1,8 +1,8 @@
 import React from "react";
-import FormHeading from "../FormHeading/FormHeading.js";
-import Button from "../Button/Button.js";
-import LineInput from "../LineInput/LineInput.js";
-import EntryBreak from "../EntryBreak/EntryBreak.js";
+import FormHeading from "../FormHeading";
+import Button from "../Button";
+import LineInput from "../LineInput";
+import EntryBreak from "../EntryBreak";
 
 const Education = ({
   data,
@@ -97,7 +97,7 @@ const Education = ({
     ) : (
       <div className="buttons-container">
         <Button buttonText="Edit" buttonType="submit" />
-        <div></div>
+        <div />
         <Button buttonText="Add" buttonType="button" clickFunc={newEntry} />
       </div>
     );

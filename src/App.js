@@ -1,17 +1,15 @@
 import React, { Component } from "react";
 import "./App.scss";
-
 import {
   AnswerObj,
   copyAnswerObj,
   returnStateObj,
   getStateAttr,
   getEntryOrder,
-} from "./common/outsourced.js";
-
-import GeneralInfo from "./components/GeneralInfo/GeneralInfo.js";
-import Education from "./components/Education/Education.js";
-import WorkExp from "./components/WorkExp/WorkExp.js";
+} from "./common";
+import GeneralInfo from "./components/GeneralInfo";
+import Education from "./components/Education";
+import WorkExp from "./components/WorkExp";
 
 class App extends Component {
   constructor(props) {

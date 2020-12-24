@@ -1,11 +1,11 @@
 /*almost all a copy of ./src/components/Education.js, with exception of <MultiLineInput /> which is needed to handle main responsibilities question using a textarea
  */
 import React from "react";
-import FormHeading from "../FormHeading/FormHeading.js";
-import Button from "../Button/Button.js";
-import LineInput from "../LineInput/LineInput.js";
-import MultiLineInput from "../MultiLineInput/MultiLineInput.js";
-import EntryBreak from "../EntryBreak/EntryBreak.js";
+import FormHeading from "../FormHeading";
+import Button from "../Button";
+import LineInput from "../LineInput";
+import MultiLineInput from "../MultiLineInput";
+import EntryBreak from "../EntryBreak";
 
 const WorkExp = (props) => {
   const entries = props.data.answers.map((answer, key) => {

@@ -1,7 +1,7 @@
 import React from "react";
-import FormHeading from "../FormHeading/FormHeading.js";
-import LineInput from "../LineInput/LineInput.js";
-import Button from "../Button/Button.js";
+import FormHeading from "../FormHeading";
+import LineInput from "../LineInput";
+import Button from "../Button";
 
 const GeneralInfo = (props) => {
   //only need to get the first entry because you can't add new entries in this section
