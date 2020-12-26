@@ -7,17 +7,16 @@ function AnswerObj(answers = [], saved = false, newEntry = false) {
 
 //deep copies an AnswerObj object
 const copyAnswerObj = (obj) => {
-  let newObj = new AnswerObj(
+  return new AnswerObj(
     obj.answers.map((a) => Object.assign({}, a)),
     obj.saved,
     obj.newEntry
   );
-  return newObj;
 };
 
 //shortens by a couple of lines the state return
 const returnStateObj = (newState, stateKey) => {
-  let returnObj = {};
+  const returnObj = {};
   returnObj[stateKey] = newState;
   return returnObj;
 };

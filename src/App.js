@@ -1,17 +1,15 @@
 import React, { Component } from "react";
 import "./App.scss";
-
 import {
   AnswerObj,
   copyAnswerObj,
   returnStateObj,
   getStateAttr,
   getEntryOrder,
-} from "./common/outsourced.js";
-
-import GeneralInfo from "./components/GeneralInfo/GeneralInfo.js";
-import Education from "./components/Education/Education.js";
-import WorkExp from "./components/WorkExp/WorkExp.js";
+} from "./common";
+import GeneralInfo from "./components/GeneralInfo";
+import Education from "./components/Education";
+import WorkExp from "./components/WorkExp";
 
 class App extends Component {
   constructor(props) {
@@ -21,45 +19,39 @@ class App extends Component {
     this.state = {
       //generalInfo initialised with data because its input html elements appear from the start. For the other 2 sections, the inputs are created when newEntry is triggered.
       generalInfo: new AnswerObj([{ name: "", email: "", phone: "" }]),
-
       education: new AnswerObj(),
       jobs: new AnswerObj(),
     };
-
-    this.inputChange = this.inputChange.bind(this);
-    this.sectionSaveEdit = this.sectionSaveEdit.bind(this);
-    this.newEntry = this.newEntry.bind(this);
-    this.deleteEntry = this.deleteEntry.bind(this);
   }
 
   //handles any input changes
-  inputChange(event) {
+  inputChange = (event) => {
     this.setState((state) => {
       //these 3 values enable the function to figure out which state, entry and input it's being triggered by. See readme for more.
-      let stateKey = getStateAttr(event.target);
-      let entryOrder = getEntryOrder(event.target);
-      let inputKey = event.target.getAttribute("inputkey");
+      const stateKey = getStateAttr(event.target);
+      const entryOrder = getEntryOrder(event.target);
+      const inputKey = event.target.getAttribute("inputkey");
 
       //deep copy so we can make changes to state object
-      let newState = copyAnswerObj(state[stateKey]);
+      const newState = copyAnswerObj(state[stateKey]);
 
       //update the relevant input in the state
       newState.answers[entryOrder][inputKey] = event.target.value;
 
       return returnStateObj(newState, stateKey);
     });
-  }
+  };
 
   //allows inputs to become editable and saves the changes
-  sectionSaveEdit(event) {
+  sectionSaveEdit = (event) => {
     //the function is triggered by a form submission, so we need to prevent the resulting page refresh
     event.preventDefault();
 
     this.setState((state) => {
       //figure out which section/state we need to update
-      let stateKey = getStateAttr(event.target);
+      const stateKey = getStateAttr(event.target);
 
-      let newState = copyAnswerObj(state[stateKey]);
+      const newState = copyAnswerObj(state[stateKey]);
 
       //if a new entry is being created, save that entry and switch
       if (newState.newEntry) {
@@ -71,18 +63,18 @@ class App extends Component {
 
       return returnStateObj(newState, stateKey);
     });
-  }
+  };
 
   //enables a new empty entry to appear
-  newEntry(event) {
+  newEntry = (event) => {
     this.setState((state) => {
-      let stateKey = getStateAttr(event.target);
+      const stateKey = getStateAttr(event.target);
 
       //create a copy of the existing  relevant state
-      let newState = copyAnswerObj(state[stateKey]);
+      const newState = copyAnswerObj(state[stateKey]);
 
       //add an empty entry to the state. only need to consider Education and Work Experience sections as General Info doesn't need new entry to be added.
-      let newEntryObj =
+      const newEntryObj =
         stateKey === "education"
           ? {
               school: "",
@@ -105,24 +97,26 @@ class App extends Component {
 
       return returnStateObj(newState, stateKey);
     });
-  }
+  };
 
   //deletes a specific entry
-  deleteEntry(event) {
+  deleteEntry = (event) => {
     this.setState((state) => {
       //find out the entry
-      let stateKey = getStateAttr(event.target);
-      let entryOrder = getEntryOrder(event.target);
+      const stateKey = getStateAttr(event.target);
+      const entryOrder = getEntryOrder(event.target);
 
       //remove the entry in the deep copy of the state
-      let newState = copyAnswerObj(state[stateKey]);
+      const newState = copyAnswerObj(state[stateKey]);
       newState.answers.splice(entryOrder, 1);
 
       return returnStateObj(newState, stateKey);
     });
-  }
+  };
 
   render() {
+    const { education, generalInfo, jobs } = this.state;
+    const { inputChange, sectionSaveEdit, newEntry, deleteEntry } = this;
     return (
       <div className="form-container">
         <div className="form-heading-container">
@@ -130,23 +124,23 @@ class App extends Component {
         </div>
         <div className="form-body-container">
           <GeneralInfo
-            data={this.state.generalInfo}
-            inputChange={this.inputChange}
-            sectionSaveEdit={this.sectionSaveEdit}
+            data={generalInfo}
+            inputChange={inputChange}
+            sectionSaveEdit={sectionSaveEdit}
           />
           <Education
-            data={this.state.education}
-            inputChange={this.inputChange}
-            sectionSaveEdit={this.sectionSaveEdit}
-            newEntry={this.newEntry}
-            deleteEntry={this.deleteEntry}
+            data={education}
+            inputChange={inputChange}
+            sectionSaveEdit={sectionSaveEdit}
+            newEntry={newEntry}
+            deleteEntry={deleteEntry}
           />
           <WorkExp
-            data={this.state.jobs}
-            inputChange={this.inputChange}
-            sectionSaveEdit={this.sectionSaveEdit}
-            newEntry={this.newEntry}
-            deleteEntry={this.deleteEntry}
+            data={jobs}
+            inputChange={inputChange}
+            sectionSaveEdit={sectionSaveEdit}
+            newEntry={newEntry}
+            deleteEntry={deleteEntry}
           />
         </div>
       </div>

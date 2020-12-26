@@ -1,17 +1,23 @@
-import FormHeading from "../FormHeading/FormHeading.js";
-import Button from "../Button/Button.js";
-import LineInput from "../LineInput/LineInput.js";
-import EntryBreak from "../EntryBreak/EntryBreak.js";
+import React from "react";
+import FormHeading from "../FormHeading";
+import Button from "../Button";
+import LineInput from "../LineInput";
+import EntryBreak from "../EntryBreak";
 
-const Education = (props) => {
+const Education = ({
+  data,
+  inputChange,
+  sectionSaveEdit,
+  newEntry,
+  deleteEntry,
+}) => {
   //generates all the entries that need to be rendered in this section
-  let entries = props.data.answers.map((answer, key) => {
-    let inputObj = props.data.answers[key];
+  const entries = data.answers.map((answer, key) => {
+    const { school, course, dateFrom, dateTo } = data.answers[key];
 
     //determines whether line input should be editable
-    let savedLineInput =
-      props.data.saved &&
-      !(props.data.newEntry && key + 1 === props.data.answers.length);
+    const savedLineInput =
+      data.saved && !(data.newEntry && key + 1 === data.answers.length);
 
     //see readme for purpose of grouporder and inputkey attributes
     return (
@@ -28,45 +34,46 @@ const Education = (props) => {
           label="School name"
           inputkey="school"
           type="text"
-          inputChange={props.inputChange}
-          inputValue={inputObj.school}
+          inputChange={inputChange}
+          inputValue={school}
           saved={savedLineInput}
         />
         <LineInput
           label="Course name"
           inputkey="course"
           type="text"
-          inputChange={props.inputChange}
-          inputValue={inputObj.course}
+          inputChange={inputChange}
+          inputValue={course}
           saved={savedLineInput}
         />
         <LineInput
           label="Date from"
           inputkey="dateFrom"
           type="date"
-          inputChange={props.inputChange}
-          inputValue={inputObj.dateFrom}
+          inputChange={inputChange}
+          inputValue={dateFrom}
           saved={savedLineInput}
         />
         <LineInput
           label="Date to"
           inputkey="dateTo"
           type="date"
-          inputChange={props.inputChange}
-          inputValue={inputObj.dateTo}
+          inputChange={inputChange}
+          inputValue={dateTo}
           saved={savedLineInput}
         />
         {
           /*renders the delete entry button. should only appear when 1) we're not creating a new entry; and 2) the section is in edit mode
            */
-          !props.data.newEntry && !props.data.saved && (
+          !data.newEntry && !data.saved && (
             <div className="buttons-container">
               <Button
-                buttonText="Delete"
                 buttonType="button"
-                clickFunc={props.deleteEntry}
+                clickFunc={deleteEntry}
                 additionalClass="danger"
-              />
+              >
+                Delete
+              </Button>
             </div>
           )
         }
@@ -79,33 +86,29 @@ const Education = (props) => {
     2. new entry is being added or the section has been made editable -> only Save button
     3. 1 or several entries in section, all saved -> Edit and Add buttons
   */
-  let buttonsContainer =
-    props.data.answers.length === 0 ? (
+  const buttonsContainer =
+    data.answers.length === 0 ? (
       <div className="buttons-container">
-        <Button
-          buttonText="Add"
-          buttonType="button"
-          clickFunc={props.newEntry}
-        />
+        <Button buttonType="button" clickFunc={newEntry}>
+          Add
+        </Button>
       </div>
-    ) : props.data.newEntry || !props.data.saved ? (
+    ) : data.newEntry || !data.saved ? (
       <div className="buttons-container">
-        <Button buttonText="Save" buttonType="submit" />
+        <Button buttonType="submit">Save</Button>
       </div>
     ) : (
       <div className="buttons-container">
-        <Button buttonText="Edit" buttonType="submit" />
-        <div></div>
-        <Button
-          buttonText="Add"
-          buttonType="button"
-          clickFunc={props.newEntry}
-        />
+        <Button buttonType="submit">Edit</Button>
+        <div />
+        <Button buttonType="button" clickFunc={newEntry}>
+          Add
+        </Button>
       </div>
     );
 
   return (
-    <form state="education" onSubmit={props.sectionSaveEdit}>
+    <form state="education" onSubmit={sectionSaveEdit}>
       <FormHeading title="Education" />
       {entries}
       {buttonsContainer}
