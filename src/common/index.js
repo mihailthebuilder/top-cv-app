@@ -5,20 +5,15 @@ function AnswerObj(answers = [], saved = false, newEntry = false) {
   this.newEntry = newEntry;
 }
 
-//deep copies an AnswerObj object
-const copyAnswerObj = (obj) => {
-  return new AnswerObj(
-    obj.answers.map((a) => Object.assign({}, a)),
-    obj.saved,
-    obj.newEntry
-  );
-};
-
-//shortens by a couple of lines the state return
-const returnStateObj = (newState, stateKey) => {
-  const returnObj = {};
-  returnObj[stateKey] = newState;
-  return returnObj;
+const copyFormData = (obj) => {
+  return Object.entries(obj).reduce((newObj, [stateObjKey, stateObjValue]) => {
+    newObj[stateObjKey] = new AnswerObj(
+      stateObjValue.answers.map((a) => Object.assign({}, a)),
+      stateObjValue.saved,
+      stateObjValue.newEntry
+    );
+    return newObj;
+  }, {});
 };
 
 //figures out which state the element corresponds to
@@ -33,10 +28,4 @@ const getEntryOrder = (elem) => {
   );
 };
 
-export {
-  AnswerObj,
-  copyAnswerObj,
-  returnStateObj,
-  getStateAttr,
-  getEntryOrder,
-};
+export { AnswerObj, getStateAttr, getEntryOrder, copyFormData };
