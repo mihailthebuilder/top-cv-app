@@ -22,7 +22,7 @@ Each section has a corresponding state. All states and corresponding handler fun
 
 In order to achieve all the above, I needed to...
 
-1. Come up with a generalised object that can capture data across all three states in the same structure. The solution is the AnswerObj object (see `src/common/outsourced.js`), which holds 3 attributes:
+1. Come up with a generalised object that can capture data across all three states in the same structure. The solution is the AnswerObj object (see `src/common/index.jsx`), which holds 3 attributes:
 
 - - `answers` - an array of all the entries for a given section.
 - - `saved` - a Boolean that indicates whether section should be saved or made editable
