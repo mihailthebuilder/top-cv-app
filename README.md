@@ -2,19 +2,33 @@
 
 ## Overview
 
-A React-based online job application form. This is an assignment from The Odin Project: https://www.theodinproject.com/lessons/cv-application
+The React front-end of a job application form. [Click here](https://mihailthebuilder.github.io/top-cv-app/) for live demo.
 
 ## How it works
 
-The form has 3 sections:
+The form has 3 sections...
 
-- General Info - your name, email and phone number
-- Education - school, course, start date, end date
-- Work Experience - company, job title, main responsibilities, start date, end date
+### General Info
 
-You can save and edit the General Info, Education and Work Experience sections. You can add new entries and delete existing ones in the Education and Work Experience sections.
+Has name, email and phone number inputs which you can save and edit.
 
-## Programming features
+![general info](./demo/general-info.gif)
+
+### Education
+
+Has school, course, start date and end date inputs. You can add new entries and save the information.
+
+![education add and save](./demo/education-add.gif)
+
+You can also edit and delete existing entries.
+
+![education edit and delete](./demo/education-edit.gif)
+
+### Work Experience
+
+Has employer, job title, main responsibilities, start date and end date inputs. You can perform the same actions as in the [Education](#education) section.
+
+## Technical highlights
 
 ### State flow
 
