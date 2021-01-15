@@ -58,7 +58,7 @@ This configuration was one of the two key pieces that enabled me to develop stat
 
 ### Component structure
 
-Having common state handling functions in [App.js](./App.js) also required me to think carefully about the structure of the components. The event listeners that triggered these functions had to figure out a way to distinguish between different states, entry groups (job #1 vs job #2) and inputs.
+Having common state handling functions in [App.js](./src/App.js) also required me to think carefully about the structure of the components. The event listeners that triggered these functions had to figure out a way to distinguish between different states, entry groups (job #1 vs job #2) and inputs.
 
 Here is a broad representation of the JSX rendered:
 
