@@ -1,3 +1,15 @@
+- [CV Application](#cv-application)
+  - [Overview](#overview)
+  - [How it works](#how-it-works)
+    - [General Info](#general-info)
+    - [Education](#education)
+    - [Work Experience](#work-experience)
+  - [Technical highlights](#technical-highlights)
+    - [State configuration](#state-configuration)
+    - [Component structure](#component-structure)
+    - [State handlers](#state-handlers)
+    - [Responsive design](#responsive-design)
+
 # CV Application
 
 ## Overview
